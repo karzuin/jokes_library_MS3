@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laugh Out Loud!</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
     {% for joke in jokes %}
         {{ joke.category_name }}<br>
         {{ joke.joke_description }}<br>
         {{ joke.created_by }}<br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
