@@ -1,10 +1,59 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for joke in jokes %}
-        {{ joke.category_name }}<br>
-        {{ joke.joke_description }}<br>
-        {{ joke.created_by }}<br>
-    {% endfor %}
+    <div class="row section">
+            <!--joke category panel-->
+            <div class="col s3">
+                <div class="collection">
+                    <a href="#!" class="collection-item black-text">Yo Momma Jokes</a>
+                    <a href="#!" class="collection-item black-text">Word Play Jokes</a>
+                    <a href="#!" class="collection-item black-text">Family Jokes</a>
+                    <a href="#!" class="collection-item black-text">Food Jokes</a>
+                    <a href="#!" class="collection-item black-text">Insult Jokes</a>
+                    <a href="#!" class="collection-item black-text">Relationship Jokes</a>
+                </div>
+            </div>
+            <div class="col s9">
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                        <img src="images/yuna.jpg" alt="" class="circle">
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle">folder</i>
+                        <span class="title"></span>
+                        <p>
+                            {% for joke in jokes %}
+                                {{ joke.joke_description }}<br>
+                                by: {{ joke.created_by }}<br>
+                            {% endfor %}
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle green">insert_chart</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle red">play_arrow</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    
 
 {% endblock %}
