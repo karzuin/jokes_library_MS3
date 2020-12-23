@@ -80,9 +80,10 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-# grab the session user's username from db
+    # grab the session user's username from db
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]#this specifies only the [username] key field
+        {"username": session["user"]})["username"] 
+        #this specifies only the [username] key field
 
     if session["user"]:
         return render_template("profile.html", username=username)
@@ -98,8 +99,19 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_joke")
+@app.route("/add_joke", methods=["GET", "POST"])
 def add_joke():
+    if request.method == "POST":
+        anonymous = "on" if request.form.get("anonymous") else "off"
+        joke = {
+            "category_name": request.form.get("category_name"),
+            "joke_description": request.form.get("joke_description"),
+            "created_by": request.form.get("created_by")
+        }
+        mongo.db.jokes.insert_one(joke)
+        flash("Joke Successfully Added")
+        return redirect(url_for("get_jokes"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_joke.html", categories=categories)
 
