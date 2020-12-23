@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+
     <div class="row section">
             <!--joke category panel-->
             <div class="col s3">
@@ -15,41 +16,13 @@
             </div>
             <div class="col s9">
                 <ul class="collection">
+                    {% for joke in jokes %}
                     <li class="collection-item avatar">
-                        <img src="images/yuna.jpg" alt="" class="circle">
-                        <span class="title">Title</span>
-                        <p>First Line <br>
-                            Second Line
-                        </p>
+                        <p><strong>{{ joke.joke_description }}</strong></p><br>
+                        <p>by: {{ joke.created_by }}</p>
                         <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                     </li>
-                    <li class="collection-item avatar">
-                        <i class="material-icons circle">folder</i>
-                        <span class="title"></span>
-                        <p>
-                            {% for joke in jokes %}
-                                {{ joke.joke_description }}<br>
-                                by: {{ joke.created_by }}<br>
-                            {% endfor %}
-                        </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    </li>
-                    <li class="collection-item avatar">
-                        <i class="material-icons circle green">insert_chart</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br>
-                            Second Line
-                        </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    </li>
-                    <li class="collection-item avatar">
-                        <i class="material-icons circle red">play_arrow</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br>
-                            Second Line
-                        </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
