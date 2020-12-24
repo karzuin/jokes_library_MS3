@@ -5,3 +5,11 @@
 .flashes h4 {
     line-height: 2;
 }
+
+.bookmark {
+   margin-left: 5px;
+}
+
+.card-image img {
+    height: 500px;
+}

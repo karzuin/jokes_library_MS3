@@ -18,9 +18,13 @@
                 <ul class="collection">
                     {% for joke in jokes %}
                     <li class="collection-item avatar">
-                        <p><strong>{{ joke.joke_description }}</strong></p><br>
-                        <p>by: {{ joke.created_by }}</p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        <p class="">{{ joke.joke_description }}</p><br>
+                        <p class="">by: {{ joke.created_by }}</p><br>
+                        <a href="" class="btn-small green darken-2">Edit</a>
+                        <a href="" class="btn-small red darken-2">Delete</a>
+                        <a href="#!" class="secondary-content"><i class="material-icons bookmark black-text">bookmark_border</i></a>
+                        <a href="#!" class="face-icon"><i class="material-icons right">sentiment_very_satisfied</i></a>
+                        <a href="#!" class="face_icon"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
                     </li>
                     {% endfor %}
                 </ul>
