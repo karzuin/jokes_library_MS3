@@ -12,7 +12,11 @@
                 <select id="category_name" name="category_name" class="validate" required>
                     <option value="" disabled selected>Choose Joke Category</option>
                     {% for category in categories %}
-                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% if category.category_name == joke.category_name %}
+                            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                        {% else %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
                 <label for="category_name"></label>
@@ -21,7 +25,8 @@
         <!--joke description-->
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="joke_description" name="joke_description" class="materialize-textarea validate" required></textarea>
+                <textarea id="joke_description" name="joke_description" class="materialize-textarea validate" required>
+                    {{- joke.joke_description -}}</textarea>
                 <label for="joke_description">Joke Description</label>
             </div>
         </div>
@@ -36,7 +41,11 @@
       <!-- submit button -->
         <div class="row">
             <div class="col s12 center-align">
-                <button type="submit" class="btn-large light-blue darken-1 text-shadow">Edit Joke</button>
+                 <!-- cancel button -->
+                    <a href="{{ url_for('get_jokes') }}" class="btn-small red text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                <button type="submit" class="btn-small yellow darken-1 text-shadow">Edit Joke</button>
             </div>
         </div>
     </form>

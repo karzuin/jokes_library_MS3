@@ -115,7 +115,7 @@ def add_joke():
     return render_template("add_joke.html", categories=categories)
 
 
-@app.route("/edit_joke", methods=["GET", "POST"])
+@app.route("/edit_joke/<joke_id>", methods=["GET", "POST"])
 def edit_joke(joke_id):
     joke = mongo.db.jokes.find_one({"_id": ObjectId(joke_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)

@@ -1,4 +1,4 @@
-nav ul a {
+nav ul a{
     color: gray;
 }
 
@@ -14,3 +14,6 @@ nav ul a {
     height: 500px;
 }
 
+.btn-small {
+    margin: 10px;
+}

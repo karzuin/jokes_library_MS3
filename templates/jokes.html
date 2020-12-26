@@ -3,33 +3,36 @@
 
 
     <div class="row section">
-            <!--joke category panel-->
-            <div class="col s3">
-                <div class="collection">
-                    <a href="#!" class="collection-item black-text">Yo Momma Jokes</a>
-                    <a href="#!" class="collection-item black-text">Word Play Jokes</a>
-                    <a href="#!" class="collection-item black-text">Family Jokes</a>
-                    <a href="#!" class="collection-item black-text">Food Jokes</a>
-                    <a href="#!" class="collection-item black-text">Insult Jokes</a>
-                    <a href="#!" class="collection-item black-text">Relationship Jokes</a>
-                </div>
-            </div>
-            <div class="col s9">
-                <ul class="collection">
-                    {% for joke in jokes %}
-                    <li class="collection-item avatar">
-                        <p class="">{{ joke.joke_description }}</p><br>
-                        <p class="">by: {{ joke.created_by }}</p><br>
-                        <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
-                        <a href="" class="btn-small red darken-2">Delete</a>
-                        <a href="#!" class="secondary-content"><i class="material-icons bookmark black-text">bookmark_border</i></a>
-                        <a href="#!" class="face-icon"><i class="material-icons right">sentiment_very_satisfied</i></a>
-                        <a href="#!" class="face_icon"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
-                    </li>
-                    {% endfor %}
-                </ul>
+        <!--joke category panel-->
+        <div class="col s3">
+            <div class="collection">
+                <a href="#!" class="collection-item grey-text text-darken-2">Yo Momma Jokes</a>
+                <a href="#!" class="collection-item grey-text text-darken-2">Word Play Jokes</a>
+                <a href="#!" class="collection-item grey-text text-darken-2">Family Jokes</a>
+                <a href="#!" class="collection-item grey-text text-darken-2">Food Jokes</a>
+                <a href="#!" class="collection-item grey-text text-darken-2">Insult Jokes</a>
+                <a href="#!" class="collection-item grey-text text-darken-2">Relationship Jokes</a>
             </div>
         </div>
+        <div class="col s9">
+        {% for joke in jokes %}
+            <div class="card">
+                <div class="card-content">
+                    <p class="">{{ joke.joke_description }}</p><br>
+                    <p class="">by: {{ joke.created_by }}</p><br>
+                </div>
+                <div>
+                    <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
+                    <a href="" class="btn-small red darken-2">Delete</a>
+                    <a href="#!" class="secondary-content"><i
+                            class="material-icons bookmark black-text">bookmark_border</i></a>
+                    <a href="#!" class="face-icon"><i class="material-icons right">sentiment_very_satisfied</i></a>
+                    <a href="#!" class="face-icon"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
+                </div>   
+            </div>
+        {% endfor %} 
+        </div>
+    </div>
 
     
 
