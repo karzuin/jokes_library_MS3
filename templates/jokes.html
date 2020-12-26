@@ -20,7 +20,7 @@
                     <li class="collection-item avatar">
                         <p class="">{{ joke.joke_description }}</p><br>
                         <p class="">by: {{ joke.created_by }}</p><br>
-                        <a href="" class="btn-small green darken-2">Edit</a>
+                        <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
                         <a href="" class="btn-small red darken-2">Delete</a>
                         <a href="#!" class="secondary-content"><i class="material-icons bookmark black-text">bookmark_border</i></a>
                         <a href="#!" class="face-icon"><i class="material-icons right">sentiment_very_satisfied</i></a>

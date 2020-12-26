@@ -1,5 +1,5 @@
-.navbar {
-    margin-bottom: 15px;
+nav ul a {
+    color: gray;
 }
 
 .flashes h4 {
@@ -13,3 +13,4 @@
 .card-image img {
     height: 500px;
 }
+

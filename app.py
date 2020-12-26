@@ -102,7 +102,6 @@ def logout():
 @app.route("/add_joke", methods=["GET", "POST"])
 def add_joke():
     if request.method == "POST":
-        anonymous = "on" if request.form.get("anonymous") else "off"
         joke = {
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
@@ -114,6 +113,13 @@ def add_joke():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_joke.html", categories=categories)
+
+
+@app.route("/edit_joke", methods=["GET", "POST"])
+def edit_joke(joke_id):
+    joke = mongo.db.jokes.find_one({"_id": ObjectId(joke_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_joke.html", joke=joke, categories=categories)
 
 
 if __name__ == "__main__":
