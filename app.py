@@ -26,6 +26,13 @@ def get_jokes():
     return render_template("jokes.html", jokes=jokes)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    jokes = list(mongo.db.jokes.find({"$text": {"$search": query}}))
+    return render_template("jokes.html", jokes=jokes)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
