@@ -30,10 +30,8 @@
                 <a href="#!" class="collection-item grey-text text-darken-2">Insult Jokes</a>
                 <a href="#!" class="collection-item grey-text text-darken-2">Relationship Jokes</a>
             </div>
-        {% if jokes|length > 0 %}
-         <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
-        {% endif %}
         </div>
+    {% if jokes|length > 0 %}
         <div class="col s9">
         {% for joke in jokes %}
             <div class="card">
@@ -58,6 +56,9 @@
             </div>
         {% endfor %} 
         </div>
+    {% else %}
+        <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+    {% endif %}
     </div>
 
     
