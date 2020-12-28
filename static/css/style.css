@@ -6,14 +6,26 @@ nav ul a{
     line-height: 2;
 }
 
-.bookmark {
-   margin-left: 5px;
-}
+/*.bookmark {
+   margin: 0px 10px 0px 10px;
+}*/
 
 .card-image img {
     height: 500px;
 }
 
 .btn-small {
-    margin: 10px;
+    margin: 15px 0px 15px 15px;
+}
+
+.bookmark {
+    margin: 15px;
+}
+
+.bookmark_edit {
+    margin: 0px;
+}
+
+.material-icons {
+    margin: 15px;
 }

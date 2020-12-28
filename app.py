@@ -102,10 +102,12 @@ def logout():
 @app.route("/add_joke", methods=["GET", "POST"])
 def add_joke():
     if request.method == "POST":
+        bookmark = "on" if request.form.get("bookmark") else "off"
         joke = {
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
-            "created_by": request.form.get("created_by")
+            "created_by": request.form.get("created_by"),
+            "bookmark": bookmark
         }
         mongo.db.jokes.insert_one(joke)
         flash("Joke Successfully Added")
@@ -117,6 +119,17 @@ def add_joke():
 
 @app.route("/edit_joke/<joke_id>", methods=["GET", "POST"])
 def edit_joke(joke_id):
+    if request.method == "POST":
+        bookmark = "on" if request.form.get("bookmark") else "off"
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "joke_description": request.form.get("joke_description"),
+            "created_by": request.form.get("created_by"),
+            "bookmark": bookmark
+        }
+        mongo.db.jokes.update({"_id": ObjectId(joke_id)}, submit)
+        flash("Joke Successfully Updated")
+
     joke = mongo.db.jokes.find_one({"_id": ObjectId(joke_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_joke.html", joke=joke, categories=categories)

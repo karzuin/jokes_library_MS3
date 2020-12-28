@@ -22,12 +22,18 @@
                     <p class="">by: {{ joke.created_by }}</p><br>
                 </div>
                 <div>
+                {% if session.user|lower == joke.created_by|lower %}
                     <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
                     <a href="" class="btn-small red darken-2">Delete</a>
-                    <a href="#!" class="secondary-content"><i
-                            class="material-icons bookmark black-text">bookmark_border</i></a>
-                    <a href="#!" class="face-icon"><i class="material-icons right">sentiment_very_satisfied</i></a>
-                    <a href="#!" class="face-icon"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
+                {% endif %}
+                    <form action="#">
+                        <label>
+                            <input type="checkbox" class="filled-in" />
+                            <span class="bookmark">Bookmark</span>
+                        </label>
+                        <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_satisfied</i></a>
+                        <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
+                    </form>
                 </div>   
             </div>
         {% endfor %} 

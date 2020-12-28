@@ -10,7 +10,7 @@
             <div class="input-field col s12">
                 <i class="fas fa-folder-open prefix yellow-text text-darken-2"></i>
                 <select id="category_name" name="category_name" class="validate" required>
-                    <option value="" disabled selected>Choose Joke Category</option>
+                    <option value="" disabled>Choose Joke Category</option>
                     {% for category in categories %}
                         {% if category.category_name == joke.category_name %}
                             <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
@@ -26,7 +26,8 @@
         <div class="row">
             <div class="input-field col s12">
                 <textarea id="joke_description" name="joke_description" class="materialize-textarea validate" required>
-                    {{- joke.joke_description -}}</textarea>
+                    {{- joke.joke_description -}}
+                </textarea>
                 <label for="joke_description">Joke Description</label>
             </div>
         </div>
@@ -34,7 +35,9 @@
         <div class="row">
             <div class="input-field col s12">
                 <textarea id="created_by" name="created_by" minlength="5" maxlength="200"
-                    class="materialize-textarea validate" required></textarea>
+                    class="materialize-textarea validate" required>
+                {{- joke.created_by -}}
+                </textarea>
                 <label for="created_by">Credit Joke To:</label>
             </div>
         </div>
