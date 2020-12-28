@@ -135,6 +135,13 @@ def edit_joke(joke_id):
     return render_template("edit_joke.html", joke=joke, categories=categories)
 
 
+@app.route("/delete_joke/<joke_id>")
+def delete_joke(joke_id):
+    mongo.db.jokes.remove({"_id": ObjectId(joke_id)})
+    flash("Joke Successfully Deleted")
+    return redirect(url_for("get_jokes"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
