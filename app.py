@@ -22,8 +22,9 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_jokes")
 def get_jokes():
-    jokes = list(mongo.db.jokes.find())
-    return render_template("jokes.html", jokes=jokes)
+        bookmark = "on" if request.form.get("bookmark") else "off"
+        jokes = list(mongo.db.jokes.find())
+        return render_template("jokes.html", jokes=jokes)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -147,6 +148,48 @@ def delete_joke(joke_id):
     mongo.db.jokes.remove({"_id": ObjectId(joke_id)})
     flash("Joke Successfully Deleted")
     return redirect(url_for("get_jokes"))
+
+
+@app.route("/family_jokes", methods=["GET", "POST"])
+def family_jokes():
+    jokes = list(mongo.db.jokes.find({"category_name": "Family Jokes"}))
+    return render_template(
+        "family_jokes.html", jokes=jokes)
+
+
+@app.route("/food_jokes", methods=["GET", "POST"])
+def food_jokes():
+    jokes = list(mongo.db.jokes.find({"category_name": "Food Jokes"}))
+    return render_template(
+        "food_jokes.html", jokes=jokes)
+
+
+@app.route("/insult_jokes", methods=["GET", "POST"])
+def insult_jokes():
+    jokes = list(mongo.db.jokes.find({"category_name": "Insult Jokes"}))
+    return render_template(
+        "insult_jokes.html", jokes=jokes)
+
+
+@app.route("/word_jokes", methods=["GET", "POST"])
+def word_jokes():
+    jokes = list(mongo.db.jokes.find({"category_name": "Word Play Jokes"}))
+    return render_template(
+        "word_jokes.html", jokes=jokes)
+
+
+@app.route("/relationship_jokes", methods=["GET", "POST"])
+def relationship_jokes():
+    jokes = list(mongo.db.jokes.find({"category_name": "Relationship Jokes"}))
+    return render_template(
+        "relationship_jokes.html", jokes=jokes)
+
+
+@app.route("/yo_jokes", methods=["GET", "POST"])
+def yo_jokes():
+    jokes = list(mongo.db.jokes.find({"category_name": "Yo Momma Jokes"}))
+    return render_template(
+        "yo_jokes.html", jokes=jokes)
 
 
 if __name__ == "__main__":
