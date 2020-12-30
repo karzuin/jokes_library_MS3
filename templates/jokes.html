@@ -18,17 +18,21 @@
                 </div>
             </div>
         </form>
-    </div>    
+    </div>  
+    <div class="s9 grey-text text-darken-2 center-align">
+        <h3>Joke Bank</h3>
+    </div>  
     <div class="row section">
         <!--joke category panel-->
         <div class="col s3">
             <div class="collection">
-                <a href="#!" class="collection-item grey-text text-darken-2">Yo Momma Jokes</a>
-                <a href="#!" class="collection-item grey-text text-darken-2">Word Play Jokes</a>
+                <a href="{{ url_for('get_jokes') }}" class="collection-item grey-text text-darken-2">Home - Joke Bank</a>
                 <a href="{{ url_for('family_jokes') }}" class="collection-item grey-text text-darken-2">Family Jokes</a>
                 <a href="{{ url_for('food_jokes') }}" class="collection-item grey-text text-darken-2">Food Jokes</a>
                 <a href="{{ url_for('insult_jokes') }}" class="collection-item grey-text text-darken-2">Insult Jokes</a>
-                <a href="#!" class="collection-item grey-text text-darken-2">Relationship Jokes</a>
+                <a href="{{ url_for('relationship_jokes') }}" class="collection-item grey-text text-darken-2">Relationship Jokes</a>
+                <a href="{{ url_for('word_jokes') }}" class="collection-item grey-text text-darken-2">Word Play Jokes</a>
+                <a href="{{ url_for('yo_jokes') }}" class="collection-item grey-text text-darken-2">Yo Momma Jokes</a>
             </div>
         </div>
     {% if jokes|length > 0 %}
@@ -60,7 +64,7 @@
                 {% endif %}
                     <form action="#">
                         <label>
-                            <input type="checkbox" class="filled-in" />
+                            <input type="checkbox" class="filled-in bookmark" name="bookmark" id="bookmark"/>
                             <span class="bookmark">Bookmark</span>
                         </label>
                         <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_satisfied</i></a>

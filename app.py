@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_jokes")
 def get_jokes():
-        bookmark = "on" if request.form.get("bookmark") else "off"
+        bookmark = "off" if request.form.get("bookmark") else "on"
         jokes = list(mongo.db.jokes.find())
         return render_template("jokes.html", jokes=jokes)
 
@@ -110,7 +110,6 @@ def logout():
 @app.route("/add_joke", methods=["GET", "POST"])
 def add_joke():
     if request.method == "POST":
-        bookmark = "on" if request.form.get("bookmark") else "off"
         joke = {
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
@@ -128,7 +127,6 @@ def add_joke():
 @app.route("/edit_joke/<joke_id>", methods=["GET", "POST"])
 def edit_joke(joke_id):
     if request.method == "POST":
-        bookmark = "on" if request.form.get("bookmark") else "off"
         submit = {
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
