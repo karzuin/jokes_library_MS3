@@ -4,11 +4,10 @@ nav ul a{
 
 .flashes h4 {
     line-height: 2;
+    width: 30%;
+    margin: auto;
+    color: grey;
 }
-
-/*.bookmark {
-   margin: 0px 10px 0px 10px;
-}*/
 
 .card-image img {
     height: 500px;
