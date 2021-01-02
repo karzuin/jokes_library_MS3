@@ -22,9 +22,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_jokes")
 def get_jokes():
-        bookmark = "off" if request.form.get("bookmark") else "on"
-        jokes = list(mongo.db.jokes.find())
-        return render_template("jokes.html", jokes=jokes)
+    jokes = list(mongo.db.jokes.find())
+    return render_template("jokes.html", jokes=jokes)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -70,10 +69,10 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    #{} is placeholder
+                    flash("Welcome, {}".format(
+                        request.form.get("username")))
                     return redirect(url_for(
-                        "profile", username=session["user"]))
+                         "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -94,7 +93,7 @@ def profile(username):
         #this specifies only the [username] key field
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username.title())
 
     return redirect(url_for("login"))
 
@@ -110,6 +109,7 @@ def logout():
 @app.route("/add_joke", methods=["GET", "POST"])
 def add_joke():
     if request.method == "POST":
+        bookmark = "on" if request.form.get("bookmark") else "off"
         joke = {
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
@@ -127,6 +127,7 @@ def add_joke():
 @app.route("/edit_joke/<joke_id>", methods=["GET", "POST"])
 def edit_joke(joke_id):
     if request.method == "POST":
+        bookmark = "on" if request.form.get("bookmark") else "off"
         submit = {
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
@@ -148,42 +149,42 @@ def delete_joke(joke_id):
     return redirect(url_for("get_jokes"))
 
 
-@app.route("/family_jokes", methods=["GET", "POST"])
+@app.route("/family_jokes")
 def family_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Family Jokes"}))
     return render_template(
         "family_jokes.html", jokes=jokes)
 
 
-@app.route("/food_jokes", methods=["GET", "POST"])
+@app.route("/food_jokes")
 def food_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Food Jokes"}))
     return render_template(
         "food_jokes.html", jokes=jokes)
 
 
-@app.route("/insult_jokes", methods=["GET", "POST"])
+@app.route("/insult_jokes")
 def insult_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Insult Jokes"}))
     return render_template(
         "insult_jokes.html", jokes=jokes)
 
 
-@app.route("/word_jokes", methods=["GET", "POST"])
+@app.route("/word_jokes")
 def word_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Word Play Jokes"}))
     return render_template(
         "word_jokes.html", jokes=jokes)
 
 
-@app.route("/relationship_jokes", methods=["GET", "POST"])
+@app.route("/relationship_jokes")
 def relationship_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Relationship Jokes"}))
     return render_template(
         "relationship_jokes.html", jokes=jokes)
 
 
-@app.route("/yo_jokes", methods=["GET", "POST"])
+@app.route("/yo_jokes")
 def yo_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Yo Momma Jokes"}))
     return render_template(
