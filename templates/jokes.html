@@ -62,14 +62,16 @@
                         </div>
                     </div>
                 {% endif %}
-                        <label>
-                            <input type="checkbox" class="filled-in bookmark" name="bookmark" id="bookmark" />
-                            <span class="bookmark">Bookmark</span>
-                        </label>
-                            
-                            <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_satisfied</i></a>
-                            <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
-                </div>   
+                {% if session.user %}
+                    {% if joke._id in users_bookmark %}
+                        <a href="{{ url_for('remove_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="remove_bookmark">Added</a>
+                    {% else %}
+                        <a href="{{ url_for('add_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="add_bookmark">Bookmark</a>
+                    {% endif %}
+                {% endif %}
+                <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_satisfied</i></a>
+                <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
+                </div>  
             </div>
         {% endfor %} 
         </div>

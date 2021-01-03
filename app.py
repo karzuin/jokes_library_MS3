@@ -23,7 +23,21 @@ mongo = PyMongo(app)
 @app.route("/get_jokes")
 def get_jokes():
     jokes = list(mongo.db.jokes.find())
+    if "user" in session:
+        users_bookmark = list(mongo.db.users.find_one(
+            {"username": session["user"]})["users_bookmark"])
+        return render_template(
+            "jokes.html", jokes=jokes, users_bookmark=users_bookmark)
     return render_template("jokes.html", jokes=jokes)
+
+
+@app.route("/profile_bookmarks")
+def profile_bookmarks():
+    users_bookmark = list(mongo.db.users.find_one(
+            {"username": session["user"]})["users_bookmark"])
+    jokes = list(mongo.db.jokes.find({"username": session["user"]}))
+    return render_template(
+            "profile.html", jokes=jokes, users_bookmark=users_bookmark)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -36,7 +50,7 @@ def search():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-    #to check if username already exists in Mongo DB
+    # to check if username already exists in Mongo DB
         existing_user = mongo.db.users.find_one(
         {"username": request.form.get("username").lower()})
 
@@ -46,11 +60,12 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "users_bookmark": []
         }
         mongo.db.users.insert_one(register)
 
-        #put the user into 'session' cookie
+        # put the user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
         return redirect(url_for("profile", username=session["user"]))
@@ -89,8 +104,8 @@ def login():
 def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"] 
-        #this specifies only the [username] key field
+        {"username": session["user"]})["username"]
+        # this specifies only the [username] key field
 
     if session["user"]:
         return render_template("profile.html", username=username.title())
@@ -146,6 +161,24 @@ def edit_joke(joke_id):
 def delete_joke(joke_id):
     mongo.db.jokes.remove({"_id": ObjectId(joke_id)})
     flash("Joke Successfully Deleted")
+    return redirect(url_for("get_jokes"))
+
+
+@app.route("/add_bookmark/<joke_id>", methods=["GET", "POST"])
+def add_bookmark(joke_id):
+    mongo.db.users.find_one_and_update(
+        {"username": session["user"].lower()},
+        {"$push": {"users_bookmark": ObjectId(joke_id)}})
+    flash("Bookmark is Saved!")
+    return redirect(url_for("get_jokes"))
+
+
+@app.route("/remove_bookmark/<joke_id>", methods=["GET", "POST"])
+def remove_bookmark(joke_id):
+    mongo.db.users.find_one_and_update(
+        {"username": session["user"].lower()},
+        {"$pull": {"users_bookmark": ObjectId(joke_id)}})
+    flash("Bookmark is Removed!")
     return redirect(url_for("get_jokes"))
 
 
