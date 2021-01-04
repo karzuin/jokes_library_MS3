@@ -29,7 +29,6 @@
             </div>
         </form>
     </div>
-
     <div class="row section">
         <!--joke category panel-->
         <div class="col s3">
@@ -43,15 +42,13 @@
                 <a href="{{ url_for('yo_jokes') }}" class="collection-item grey-text text-darken-2">Yo Momma Jokes</a>
             </div>
         </div>
-        <h1>{{ jokes }}</h1>
-    {% if jokes|length > 0 %}
         <div class="col s9">
-            {% for joke in jokes %}
+        {% for bookmark_joke in bookmark_jokes %}   
             <div class="card">
                 <div class="card-content">
-                    <p class="">{{ joke.joke_description }}</p><br>
-                    <p class="">by: {{ joke.created_by }}</p><br>
-                </div>
+                    <p class="">{{ bookmark_joke.joke_description }}</p><br>
+                    <p class="">by: {{ bookmark_joke.created_by }}</p><br>
+                </div> 
                 <div>
                     <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
                     <!-- Modal Trigger -->
@@ -69,16 +66,16 @@
                         Cancel</a>
                         </div>
                     </div>
-                        <a href="{{ url_for('remove_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="remove_bookmark">Added</a>
-                        <a href="{{ url_for('add_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="add_bookmark">Bookmark</a>
+                        {% if joke._id in users_bookmark %}
+                            <a href="{{ url_for('remove_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="remove_bookmark">Added</a>
+                        {% else %}
+                            <a href="{{ url_for('add_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="add_bookmark">Bookmark</a>
+                        {% endif %}
                         <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_satisfied</i></a>
                         <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
                 </div>  
             </div>
-        {% endfor %} 
+        {% endfor %}
         </div>
-    {% else %}
-        <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
-    {% endif %}
     </div>
 {% endblock %}

@@ -35,12 +35,17 @@ def get_jokes():
 def coll_bookmarks(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    users_bookmark = list(mongo.db.users.find_one(
-        {"username": session["user"]})["users_bookmark"])
-    jokes = list(mongo.db.jokes.find({"username": session["user"]}))
+    users_bookmark = mongo.db.users.find_one(
+            {"username": session["user"]})["users_bookmark"]
+
+    bookmark_jokes = []
+    for bookmark in users_bookmark:
+        joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
+        bookmark_jokes.append(joke)
     return render_template(
-            "coll_bookmarks.html", username=username.title(),
-            jokes=jokes, users_bookmark=users_bookmark)
+        "coll_bookmarks.html", username=username.title(),
+        users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
+        joke=joke)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -118,7 +123,6 @@ def add_joke():
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
             "created_by": request.form.get("created_by"),
-            "bookmark": bookmark
         }
         mongo.db.jokes.insert_one(joke)
         flash("Joke Successfully Added")
@@ -135,7 +139,6 @@ def edit_joke(joke_id):
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
             "created_by": request.form.get("created_by"),
-            "bookmark": bookmark
         }
         mongo.db.jokes.update({"_id": ObjectId(joke_id)}, submit)
         flash("Joke Successfully Updated")
