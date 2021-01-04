@@ -31,13 +31,16 @@ def get_jokes():
     return render_template("jokes.html", jokes=jokes)
 
 
-@app.route("/profile_bookmarks")
-def profile_bookmarks():
+@app.route("/coll_bookmarks/<username>", methods=["GET", "POST"])
+def coll_bookmarks(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
     users_bookmark = list(mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"])
     jokes = list(mongo.db.jokes.find({"username": session["user"]}))
     return render_template(
-            "profile.html", jokes=jokes, users_bookmark=users_bookmark)
+            "coll_bookmarks.html", username=username.title(),
+            jokes=jokes, users_bookmark=users_bookmark)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -87,7 +90,7 @@ def login():
                     flash("Welcome, {}".format(
                         request.form.get("username")))
                     return redirect(url_for(
-                         "profile", username=session["user"]))
+                         "coll_bookmarks", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -98,19 +101,6 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
     return render_template("login.html")
-
-
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-    # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-        # this specifies only the [username] key field
-
-    if session["user"]:
-        return render_template("profile.html", username=username.title())
-
-    return redirect(url_for("login"))
 
 
 @app.route("/logout")

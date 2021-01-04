@@ -6,7 +6,7 @@
         <div class="col s6 s6 offset-s3">
             <div class="card-panel">
                 <h3 class="center-align grey-text yellow-darken-3">
-                    {{ username }}'s Profile
+                    {{ username }}'s Collection
                 </h3>
             </div>
         </div>
@@ -52,7 +52,7 @@
                     <p class="">by: {{ joke.created_by }}</p><br>
                 </div>
                 <div>
-                {% if session.user|lower == joke.created_by|lower %}
+                
                     <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
                     <!-- Modal Trigger -->
                     <a class="btn-small red modal-trigger" href="#modal1">Delete</a>
@@ -69,14 +69,14 @@
                         Cancel</a>
                         </div>
                     </div>
-                {% endif %}
-                {% if session.user %}
+                
+                
                     {% if joke._id in users_bookmark %}
                         <a href="{{ url_for('remove_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="remove_bookmark">Added</a>
                     {% else %}
                         <a href="{{ url_for('add_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="add_bookmark">Bookmark</a>
                     {% endif %}
-                {% endif %}
+                
                 <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_satisfied</i></a>
                 <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
                 </div>  
