@@ -43,11 +43,12 @@
                     <p class="">{{ joke.joke_description }}</p><br>
                     <p class="">by: {{ joke.created_by }}</p><br>
                 </div>
-                <div>
+                <div class="row">
+                    <div class="col s9">
                 {% if session.user|lower == joke.created_by|lower %}
-                    <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
+                        <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
                     <!-- Modal Trigger -->
-                    <a class="btn-small red modal-trigger" href="#modal1">Delete</a>
+                        <a class="btn-small red modal-trigger" href="#modal1">Delete</a>
                     
                     <!-- Modal Structure -->
                     <div id="modal1" class="modal">
@@ -69,9 +70,13 @@
                         <a href="{{ url_for('add_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="add_bookmark">Bookmark</a>
                     {% endif %}
                 {% endif %}
-                <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_satisfied</i></a>
-                <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
-                </div>  
+                    </div>
+                    <div class="col s3">
+                        <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_satisfied</i></a>
+                        <a href="#!" class="face-icon secondary content"><i class="material-icons right">sentiment_very_dissatisfied</i></a>
+                    </div> 
+                </div>
+                
             </div>
         {% endfor %} 
         </div>
