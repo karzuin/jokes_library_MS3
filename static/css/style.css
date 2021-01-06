@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(245, 240, 226);
+}
+
 nav ul a{
     color: gray;
 }
@@ -26,19 +30,11 @@ nav ul a{
 }
 
 #laughing-face {
-    margin: 15px;
+    margin: 0px 10px 0px;
 }
 
 #frowning-face  {
-    margin: 15px;
-}
-
-#like {
-    margin: 0px 5px 0px;
-}
-
-#dislike {
-    margin: 0px 5px 0px;
+    margin: 0px 10px 0px;
 }
 
 .social-links i {
@@ -47,6 +43,26 @@ nav ul a{
 
 /*-----MEDIA QUERIES-----*/
 
-@media (max-width: 414px) {
-    
+@media only screen and (max-width: 414px) {
+
+    #hero-text {
+        font-size: 20px;
+    }
+
+    .btn-small {
+        width: 80%;
+        font-size: 8px;
+    }
+
+    #fa-search {
+        font-size: 15px;
+    }
+
+    #searchbox {
+        font-size: 10px;
+    }
+
+    #counter {
+        margin-right: 5px;
+    }
 }
