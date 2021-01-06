@@ -123,6 +123,8 @@ def add_joke():
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
             "created_by": request.form.get("created_by"),
+            "like": "",
+            "dislike": ""
         }
         mongo.db.jokes.insert_one(joke)
         flash("Joke Successfully Added")
@@ -171,6 +173,20 @@ def remove_bookmark(joke_id):
         {"$pull": {"users_bookmark": ObjectId(joke_id)}})
     flash("Bookmark is Removed!")
     return redirect(url_for("get_jokes"))
+
+
+@app.route("/like/<joke_id>", methods=["GET", "POST"])
+def like(joke_id):
+    joke = mongo.db.jokes.find_one_and_update(
+        {"_id": ObjectId(joke_id)}, {"$inc": {"like": 1}})
+    return redirect(url_for("get_jokes", joke=joke))
+
+
+@app.route("/dislike/<joke_id>", methods=["GET", "POST"])
+def dislike(joke_id):
+    joke = mongo.db.jokes.find_one_and_update(
+        {"_id": ObjectId(joke_id)}, {"$inc": {"dislike": 1}})
+    return redirect(url_for("get_jokes", joke=joke))
 
 
 @app.route("/family_jokes")

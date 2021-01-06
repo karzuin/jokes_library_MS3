@@ -25,6 +25,24 @@ nav ul a{
     margin: 0px;
 }
 
-.material-icons {
+#laughing-face {
     margin: 15px;
+}
+
+#frowning-face  {
+    margin: 15px;
+}
+
+#upvote {
+    margin: 0px 5px 0px;
+}
+
+#downvote {
+    margin: 0px 5px 0px;
+}
+
+/*-----MEDIA QUERIES-----*/
+
+@media (max-width: 414px) {
+    
 }

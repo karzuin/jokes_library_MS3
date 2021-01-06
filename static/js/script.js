@@ -2,6 +2,7 @@ $(document).ready(function(){
     $(".sidenav").sidenav({edge:"right"});
     $('select').formSelect();
     $('.modal').modal();
+    $('.tooltipped').tooltip();
     $('#textarea1').val();
   M.textareaAutoResize($('#textarea1'));
 
