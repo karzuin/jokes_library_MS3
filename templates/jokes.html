@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container">
+    
         <div class="row card-panel grey lighten-5">
             <form action="{{ url_for('search') }}" method="POST" class="col s12">
                 <div class="row valign-wrapper center-align">
-                    <div class="input-field col s12 m8">
+                    <div class="input-field col s12 m12">
                         <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
                         <input type="text" name="query" id="query" minlength="3" class="validate" required>
                         <label for="query">Search Jokes</label>
                     </div>
-                    <div class="col s12 m4">
-                        <a href="{{ url_for('get_jokes') }}" class="red btn text-shadow">Reset</a>
-                        <button type="submit" class="yellow darken-3 btn text-shadow">
+                    <div class="col s4 m12">
+                        <a href="{{ url_for('get_jokes') }}" class="red btn-small text-shadow">Reset</a>
+                        <button type="submit" class="yellow darken-3 btn-small text-shadow">
                             <i class="fas fa-search left"></i> Search
                         </button>
                     </div>
@@ -24,7 +24,7 @@
         </div>  
         <div class="row section">
             <!--joke category panel-->
-            <div class="col s3">
+            <div class="col s3 m3">
                 <div class="collection z-depth-1">
                     <a href="{{ url_for('get_jokes') }}" class="collection-item grey-text text-darken-2">Home - Joke Bank</a>
                     <a href="{{ url_for('family_jokes') }}" class="collection-item grey-text text-darken-2">Family Jokes</a>
@@ -36,7 +36,7 @@
                 </div>
             </div>
         {% if jokes|length > 0 %}
-            <div class="col s9">
+            <div class="col s9 m9">
             {% for joke in jokes %}
                 <div class="card">
                     <div class="card-content">
@@ -65,9 +65,11 @@
                     {% endif %}
                     {% if session.user %}
                         {% if joke._id in users_bookmark %}
-                            <a href="{{ url_for('remove_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="remove_bookmark">Added</a>
+                            <a href="{{ url_for('remove_bookmark', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
+                                data-position="top" data-tooltip="Click to Un-bookmark!" id="remove_bookmark">Added</a>
                         {% else %}
-                            <a href="{{ url_for('add_bookmark', joke_id=joke._id)}}" class="btn btn-small teal lighten-1 white-text bold" id="add_bookmark">Bookmark</a>
+                            <a href="{{ url_for('add_bookmark', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
+                                data-position="top" data-tooltip="Click to Bookmark!" id="add_bookmark">Bookmark</a>
                         {% endif %}
                     {% endif %}
                         </div>
@@ -89,7 +91,7 @@
             <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
         {% endif %}
         </div>
-    </div>
+    
     
 
 {% endblock %}
