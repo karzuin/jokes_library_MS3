@@ -2,7 +2,7 @@
 {% block content %}
 
     
-        <div class="row card-panel orange lighten-4">
+        <div class="row card-panel amber lighten-5">
             <form action="{{ url_for('search') }}" method="POST" class="col s12">
                 <div class="row valign-wrapper center-align">
                     <div class="input-field col s12 m12">
@@ -11,8 +11,8 @@
                         <label for="query" id="searchbox">Search Jokes</label>
                     </div>
                     <div class="col s12">
-                        <a href="{{ url_for('get_jokes') }}" class="red btn-small text-shadow">Reset</a>
-                        <button type="submit" class="yellow darken-3 btn-small text-shadow">
+                        <a href="{{ url_for('get_jokes') }}" class="red btn text-shadow">Reset</a>
+                        <button type="submit" class="yellow darken-3 btn text-shadow">
                             Search
                         </button>
                     </div>
@@ -26,25 +26,25 @@
             <!--joke category panel-->
             <div class="col s12 m6 offset-m3 l3">
                 <div class="collection z-depth-1">
-                    <a href="{{ url_for('get_jokes') }}" class="collection-item orange lighten-5 grey-text text-darken-2">Home - Joke Bank</a>
-                    <a href="{{ url_for('family_jokes') }}" class="collection-item orange lighten-5 grey-text text-darken-2">Family Jokes</a>
-                    <a href="{{ url_for('food_jokes') }}" class="collection-item orange lighten-5 grey-text text-darken-2">Food Jokes</a>
-                    <a href="{{ url_for('insult_jokes') }}" class="collection-item orange lighten-5 grey-text text-darken-2">Insult Jokes</a>
-                    <a href="{{ url_for('relationship_jokes') }}" class="collection-item orange lighten-5 grey-text text-darken-2">Relationship Jokes</a>
-                    <a href="{{ url_for('word_jokes') }}" class="collection-item orange lighten-5 grey-text text-darken-2">Word Play Jokes</a>
-                    <a href="{{ url_for('yo_jokes') }}" class="collection-item orange lighten-5 grey-text text-darken-2">Yo Momma Jokes</a>
+                    <a href="{{ url_for('get_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Home - Joke Bank</a>
+                    <a href="{{ url_for('family_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Family Jokes</a>
+                    <a href="{{ url_for('food_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Food Jokes</a>
+                    <a href="{{ url_for('insult_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Insult Jokes</a>
+                    <a href="{{ url_for('relationship_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Relationship Jokes</a>
+                    <a href="{{ url_for('word_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Word Play Jokes</a>
+                    <a href="{{ url_for('yo_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Yo Momma Jokes</a>
                 </div>
             </div>
         {% if jokes|length > 0 %}
             <div class="col s12 l9">
             {% for joke in jokes %}
-                <div class="card-panel orange lighten-5">
+                <div class="card-panel amber lighten-5">
                     <div class="card-content">
                         <p class="">{{ joke.joke_description }}</p><br>
                         <p class="">by: {{ joke.created_by }}</p><br>
                     </div>
                     <div class="row">
-                        <div class="col s6 m7 l7 valign-wrapper">
+                        <div class="col s8 offset-s2 m4 valign-wrapper" id="bookmarks">
                     {% if session.user %}
                         {% if joke._id in users_bookmark %}
                             <a href="{{ url_for('remove_bookmark', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
@@ -54,24 +54,15 @@
                                 data-position="top" data-tooltip="Click to Bookmark!" id="add_bookmark">Bookmark</a>
                         {% endif %}
                     {% endif %}
-                        <div class="col s6 l6 valign-wrapper face-icons">
-                            <a href="{{ url_for('like', joke_id=joke._id)}}" class="secondary content like tooltipped" 
-                                data-position="top" data-tooltip="Click to Like!">
-                                <img src="/static/images/joyful-face.png" id="laughing-face" alt="laughing-face"></a>
-                                <span class="black-text bold like" id="counter">{{ joke.like }}</span>
-                            <a href="{{ url_for('dislike', joke_id=joke._id)}}" class="secondary content dislike tooltipped" 
-                                data-position="top" data-tooltip="Click to Disike!">
-                                <img src="/static/images/frowning-face.png" id="frowning-face" alt="frowning-face"></a>
-                            <span class="black-text bold dislike" id="counter">{{ joke.dislike }}</span>
-                        </div> 
+                        
                         </div>
-                        <div class="col s12 m5 l4">
+                        <div class="col s12 m4" id="edit-delete">
                     {% if session.user|lower == joke.created_by|lower %}
-                            <div class="col s6 l5">
+                            <div class="col s6 valign-wrapper edit-delete" id="edit">
                             <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
                             </div>
                         <!-- Modal Trigger -->
-                            <div class="col s6 l6">
+                            <div class="col s6" id="delete">
                             <a class="btn-small red modal-trigger" href="#modal1">Delete</a>
                             </div>
                         <!-- Modal Structure -->
@@ -89,6 +80,17 @@
                     {% endif %}
                         </div>
                         
+                        <div class="col s12 m4 valign-wrapper" id="face-icons">
+                            <a href="{{ url_for('like', joke_id=joke._id)}}" class="secondary content like tooltipped" 
+                                data-position="top" data-tooltip="Click to Like!">
+                                <img src="/static/images/joyful-face.png" id="laughing-face" alt="laughing-face"></a>
+                                <span class="black-text bold like" id="counter">{{ joke.like }}</span>
+                            <a href="{{ url_for('dislike', joke_id=joke._id)}}" class="secondary content dislike tooltipped" 
+                                data-position="top" data-tooltip="Click to Dislike!">
+                                <img src="/static/images/frowning-face.png" id="frowning-face" alt="frowning-face"></a>
+                            <span class="black-text bold dislike" id="counter">{{ joke.dislike }}</span>
+                        </div> 
+
                     </div>   
                 </div>
             {% endfor %} 

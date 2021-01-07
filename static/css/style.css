@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(245, 240, 226);
+    background-color: #fafafa;
 }
 
 nav ul a{
@@ -18,32 +18,36 @@ nav ul a{
 }
 
 .btn-small {
-    margin: 15px 0px 15px 15px;
+    margin: 10px;
 }
 
-.bookmark {
+/*.bookmark {
     margin: 15px;
 }
 
 .bookmark_edit {
     margin: 0px;
-}
+}*/
 
-#laughing-face {
+#counter {
     margin: 0px 10px 0px;
 }
 
-#frowning-face  {
-    margin: 0px 10px 0px;
+.social-links {
+    margin: 20px;
 }
 
 .social-links i {
     font-size: 30px;
 }
 
+.copyright {
+    padding-bottom: 20px;
+}
+
 /*-----MEDIA QUERIES-----*/
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 325px) {
 
     #hero-text {
         font-size: 20px;
@@ -61,8 +65,174 @@ nav ul a{
     #searchbox {
         font-size: 10px;
     }
+    
+    #edit {
+        padding: 0px;
+    }
+
+    #delete {
+        padding: 0px;
+    }
+
+    #face-icons {
+        margin-left: 50px;
+    }
 
     #counter {
-        margin-right: 5px;
+        margin-left: 15px;
     }
+}
+
+@media only screen and (min-width: 375px) {
+
+    #hero-text {
+        font-size: 20px;
+    }
+
+    .btn-small {
+        width: 80%;
+        font-size: 10px;
+    }
+
+    #fa-search {
+        font-size: 15px;
+    }
+
+    #searchbox {
+        font-size: 10px;
+    }
+
+    #edit {
+        padding: 0px;
+    }
+
+    #delete {
+        padding: 0px;
+    }
+
+    #face-icons {
+        margin-left: 70px;
+    }
+
+    #counter {
+        margin-left: 15px;
+    }
+    
+}
+
+@media only screen and (min-width: 425px) {
+
+    #hero-text {
+        font-size: 20px;
+    }
+
+    .btn-small {
+        width: 80%;
+        font-size: 12px;
+    }
+
+    #fa-search {
+        font-size: 15px;
+    }
+
+    #searchbox {
+        font-size: 10px;
+    }
+
+    #edit {
+        padding: 0px;
+    }
+
+    #delete {
+        padding: 0px;
+    }
+
+    #face-icons {
+        margin-left: 90px;
+    }
+
+    #counter {
+        margin-left: 15px;
+    }
+    
+}
+
+@media only screen and (min-width: 760px) {
+
+    #searchbox {
+        font-size: 20px;
+    }
+    
+    #edit-delete {
+        margin-left: -30px;
+    }
+
+    #edit {
+        padding: 0px;
+    }
+
+    #delete {
+        padding: 0px;
+    }
+
+    #face-icons {
+        margin: 15px 0px 0px 30px;
+    }
+
+    #counter {
+        margin-left: 15px;
+    }
+    
+}
+
+@media only screen and (min-width: 1020px) {
+
+    .btn-small {
+        width: 100%;
+    }
+
+    #edit-delete {
+        margin-left: -30px;
+    }
+
+    #edit {
+        padding: 0px;
+    }
+
+    #delete {
+        padding: 0px;
+    }
+
+    #face-icons {
+        margin: 15px 0px 0px 30px;
+    }
+
+    #counter {
+        margin-left: 15px;
+    }
+    
+}
+
+@media only screen and (min-width: 1435px) {
+
+    #edit-delete {
+        margin-left: -30px;
+    }
+
+    #edit {
+        padding: 0px;
+    }
+
+    #delete {
+        padding: 0px;
+    }
+
+    #face-icons {
+        margin: 15px 0px 0px 30px;
+    }
+
+    #counter {
+        margin: 0px 20px 0px;
+    }
+    
 }
