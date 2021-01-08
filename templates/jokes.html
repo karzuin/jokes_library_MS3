@@ -11,10 +11,10 @@
                         <label for="query" id="searchbox">Search Jokes</label>
                     </div>
                     <div class="col s12">
-                        <a href="{{ url_for('get_jokes') }}" class="red btn text-shadow">
+                        <a href="{{ url_for('get_jokes') }}" class="red btn text-shadow" id="search-btns">
                             Reset
                         </a>
-                        <button type="submit" class="yellow darken-3 btn text-shadow">
+                        <button type="submit" class="yellow darken-3 btn text-shadow" id="search-btns">
                             Search
                         </button>
                     </div>
@@ -76,8 +76,8 @@
                             </div>
                             <div class="modal-footer">
                                 <a href="{{ url_for('delete_joke', joke_id=joke._id)}}"
-                                    class="modal-close btn-small red">Delete</a>
-                                <a href="{{ url_for('get_jokes') }}" class="btn-small grey text-shadow">
+                                    class="modal-close btn red">Delete</a>
+                                <a href="{{ url_for('get_jokes') }}" class="btn grey text-shadow">
                             Cancel</a>
                             </div>
                         </div>

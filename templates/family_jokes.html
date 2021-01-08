@@ -51,10 +51,10 @@
                         <div class="col s8 offset-s2 m4 valign-wrapper" id="bookmarks">
                     {% if session.user %}
                         {% if joke._id in users_bookmark %}
-                            <a href="{{ url_for('family_remove_bk', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
+                            <a href="{{ url_for('remove_bookmark', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
                                 data-position="top" data-tooltip="Click to Un-bookmark!" id="remove_bookmark">Added</a>
                         {% else %}
-                            <a href="{{ url_for('family_add_bk', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
+                            <a href="{{ url_for('add_bookmark', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
                                 data-position="top" data-tooltip="Click to Bookmark!" id="add_bookmark">Bookmark</a>
                         {% endif %}
                     {% endif %}       
