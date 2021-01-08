@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row card-panel grey lighten-5">
+    <div class="row card-panel amber lighten-5">
         <form action="{{ url_for('search') }}" method="POST" class="col s12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field col s12 m8">
@@ -22,59 +22,87 @@
         <h3>Relationship Jokes</h3>
     </div>
     <div class="row section">
-        <!--joke category panel-->
-        <div class="col s3">
-            <div class="collection">
-                <a href="{{ url_for('get_jokes') }}" class="collection-item grey-text text-darken-2">Home - Joke Bank</a>
-                <a href="{{ url_for('family_jokes') }}" class="collection-item grey-text text-darken-2">Family Jokes</a>
-                <a href="{{ url_for('food_jokes') }}" class="collection-item grey-text text-darken-2">Food Jokes</a>
-                <a href="{{ url_for('insult_jokes') }}" class="collection-item grey-text text-darken-2">Insult Jokes</a>
-                <a href="{{ url_for('relationship_jokes') }}" class="collection-item grey-text text-darken-2">Relationship Jokes</a>
-                <a href="{{ url_for('word_jokes') }}" class="collection-item grey-text text-darken-2">Word Play Jokes</a>
-                <a href="{{ url_for('yo_jokes') }}" class="collection-item grey-text text-darken-2">Yo Momma Jokes</a>
+    <!--Joke category panel-->
+            <div class="col s12 m6 offset-m3 l3">
+                <div class="collection z-depth-1">
+                    <a href="{{ url_for('get_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Home - Joke Bank</a>
+                    <a href="{{ url_for('family_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Family Jokes</a>
+                    <a href="{{ url_for('food_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Food Jokes</a>
+                    <a href="{{ url_for('insult_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Insult Jokes</a>
+                    <a href="{{ url_for('relationship_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Relationship Jokes</a>
+                    <a href="{{ url_for('word_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Word Play Jokes</a>
+                    <a href="{{ url_for('yo_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Yo Momma Jokes</a>
+                </div>
             </div>
-        </div>
-        <div class="col s9">
+        <!--Joke cards-->
+        {% if jokes|length > 0 %}
+            <div class="col s12 l9">
             {% for joke in jokes %}
-            <div class="card">
-                <div class="card-content">
-                    <p class="">{{ joke.joke_description }}</p><br>
-                    <p class="">by: {{ joke.created_by }}</p><br>
-                </div>
-                <div>
-                    {% if session.user|lower == joke.created_by|lower %}
-                    <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
-                    <!-- Modal Trigger -->
-                    <a class="btn-small red modal-trigger" href="#modal1">Delete</a>
-    
-                    <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Are you sure you want to delete this joke?</h4>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="{{ url_for('delete_joke', joke_id=joke._id)}}"
-                                class="modal-close btn-small red">Delete</a>
-                            <a href="{{ url_for('get_jokes') }}" class="btn-small grey text-shadow">
-                                Cancel</a>
-                        </div>
+                <div class="card-panel amber lighten-5">
+                    <div class="card-content">
+                        <p class="">{{ joke.joke_description }}</p><br>
+                        <p class="">by: {{ joke.created_by }}</p><br>
                     </div>
+                    <div class="row">
+                    <!--Bookmarks-->
+                        <div class="col s8 offset-s2 m4 valign-wrapper" id="bookmarks">
+                    {% if session.user %}
+                        {% if joke._id in users_bookmark %}
+                            <a href="{{ url_for('remove_bookmark', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
+                                data-position="top" data-tooltip="Click to Un-bookmark!" id="remove_bookmark">Added</a>
+                        {% else %}
+                            <a href="{{ url_for('add_bookmark', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
+                                data-position="top" data-tooltip="Click to Bookmark!" id="add_bookmark">Bookmark</a>
+                        {% endif %}
+                    {% endif %}       
+                        </div>
+                    <!--Edit and Delete-->
+                        <div class="col s12 m4" id="edit-delete">
+                    {% if session.user|lower == joke.created_by|lower %}
+                            <div class="col s6 valign-wrapper edit-delete" id="edit">
+                            <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
+                            </div>
+                        <!-- Modal Trigger -->
+                            <div class="col s6" id="delete">
+                            <a class="btn-small red modal-trigger" href="#modal1">Delete</a>
+                            </div>
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h4>Are you sure you want to delete this joke?</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{{ url_for('delete_joke', joke_id=joke._id)}}"
+                                    class="modal-close btn-small red">Delete</a>
+                                <a href="{{ url_for('get_jokes') }}" class="btn-small grey text-shadow">
+                            Cancel</a>
+                            </div>
+                        </div>
                     {% endif %}
-                    <form action="#">
-                        <label>
-                            <input type="checkbox" class="filled-in" />
-                            <span class="bookmark">Bookmark</span>
-                        </label>
-                        <a href="#!" class="face-icon secondary content"><i
-                                class="material-icons right">sentiment_very_satisfied</i></a>
-                        <a href="#!" class="face-icon secondary content"><i
-                                class="material-icons right">sentiment_very_dissatisfied</i></a>
-                    </form>
+                        </div>
+                        <!--Likes and Dislikes-->
+                        <div class="col s12 m4 valign-wrapper" id="face-icons">
+                            <a href="{{ url_for('like', joke_id=joke._id)}}" class="secondary content like tooltipped" 
+                                data-position="top" data-tooltip="Click to Like!">
+                                <img src="/static/images/joyful-face.png" id="laughing-face" alt="laughing-face"></a>
+                                <span class="black-text bold like" id="counter">{{ joke.like }}</span>
+                            <a href="{{ url_for('dislike', joke_id=joke._id)}}" class="secondary content dislike tooltipped" 
+                                data-position="top" data-tooltip="Click to Dislike!">
+                                <img src="/static/images/frowning-face.png" id="frowning-face" alt="frowning-face"></a>
+                            <span class="black-text bold dislike" id="counter">{{ joke.dislike }}</span>
+                        </div> 
+
+                    </div>   
                 </div>
+            {% endfor %} 
             </div>
-            {% endfor %}
+        {% else %}
+        <!--No search results-->
+            <div class="s6" id="no-results">
+                <h3 class="red-text text-darken-4 center-align" >No Results Found</h3>
+            </div>
+        {% endif %}
         </div>
-    </div>
 
 
 {% endblock %}

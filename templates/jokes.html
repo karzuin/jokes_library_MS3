@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    
+    <!--Search-->
         <div class="row card-panel amber lighten-5">
             <form action="{{ url_for('search') }}" method="POST" class="col s12">
                 <div class="row valign-wrapper center-align">
@@ -11,7 +11,9 @@
                         <label for="query" id="searchbox">Search Jokes</label>
                     </div>
                     <div class="col s12">
-                        <a href="{{ url_for('get_jokes') }}" class="red btn text-shadow">Reset</a>
+                        <a href="{{ url_for('get_jokes') }}" class="red btn text-shadow">
+                            Reset
+                        </a>
                         <button type="submit" class="yellow darken-3 btn text-shadow">
                             Search
                         </button>
@@ -23,7 +25,7 @@
             <h3>Joke Bank</h3>
         </div>  
         <div class="row section">
-            <!--joke category panel-->
+        <!--Joke category panel-->
             <div class="col s12 m6 offset-m3 l3">
                 <div class="collection z-depth-1">
                     <a href="{{ url_for('get_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Home - Joke Bank</a>
@@ -35,6 +37,7 @@
                     <a href="{{ url_for('yo_jokes') }}" class="collection-item amber lighten-5 grey-text text-darken-2">Yo Momma Jokes</a>
                 </div>
             </div>
+        <!--Joke cards-->
         {% if jokes|length > 0 %}
             <div class="col s12 l9">
             {% for joke in jokes %}
@@ -44,6 +47,7 @@
                         <p class="">by: {{ joke.created_by }}</p><br>
                     </div>
                     <div class="row">
+                    <!--Bookmarks-->
                         <div class="col s8 offset-s2 m4 valign-wrapper" id="bookmarks">
                     {% if session.user %}
                         {% if joke._id in users_bookmark %}
@@ -53,9 +57,9 @@
                             <a href="{{ url_for('add_bookmark', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
                                 data-position="top" data-tooltip="Click to Bookmark!" id="add_bookmark">Bookmark</a>
                         {% endif %}
-                    {% endif %}
-                        
+                    {% endif %}       
                         </div>
+                    <!--Edit and Delete-->
                         <div class="col s12 m4" id="edit-delete">
                     {% if session.user|lower == joke.created_by|lower %}
                             <div class="col s6 valign-wrapper edit-delete" id="edit">
@@ -79,7 +83,7 @@
                         </div>
                     {% endif %}
                         </div>
-                        
+                        <!--Likes and Dislikes-->
                         <div class="col s12 m4 valign-wrapper" id="face-icons">
                             <a href="{{ url_for('like', joke_id=joke._id)}}" class="secondary content like tooltipped" 
                                 data-position="top" data-tooltip="Click to Like!">
@@ -96,6 +100,7 @@
             {% endfor %} 
             </div>
         {% else %}
+        <!--No search results-->
             <div class="s6" id="no-results">
                 <h3 class="red-text text-darken-4 center-align" >No Results Found</h3>
             </div>

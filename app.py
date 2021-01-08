@@ -196,6 +196,38 @@ def family_jokes():
         "family_jokes.html", jokes=jokes)
 
 
+@app.route("/family_add_bk/<joke_id>", methods=["GET", "POST"])
+def family_add_bk(joke_id):
+    mongo.db.users.find_one_and_update(
+        {"username": session["user"].lower()},
+        {"$push": {"users_bookmark": ObjectId(joke_id)}})
+    flash("Bookmark is Saved!")
+    return redirect(url_for("family_jokes"))
+
+
+@app.route("/family_remove_bk/<joke_id>", methods=["GET", "POST"])
+def family_remove_bk(joke_id):
+    mongo.db.users.find_one_and_update(
+        {"username": session["user"].lower()},
+        {"$pull": {"users_bookmark": ObjectId(joke_id)}})
+    flash("Bookmark is Removed!")
+    return redirect(url_for("family_jokes"))
+
+
+@app.route("/family_like/<joke_id>", methods=["GET", "POST"])
+def family_like(joke_id):
+    joke = mongo.db.jokes.find_one_and_update(
+        {"_id": ObjectId(joke_id)}, {"$inc": {"like": 1}})
+    return redirect(url_for("family_jokes", joke=joke))
+
+
+@app.route("/family_dislike/<joke_id>", methods=["GET", "POST"])
+def family_dislike(joke_id):
+    joke = mongo.db.jokes.find_one_and_update(
+        {"_id": ObjectId(joke_id)}, {"$inc": {"dislike": 1}})
+    return redirect(url_for("family_jokes", joke=joke))
+
+
 @app.route("/food_jokes")
 def food_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Food Jokes"}))
