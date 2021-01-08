@@ -4,7 +4,7 @@
     <h3 class="center-align grey-text">Log In</h3>
 
     <div class="row">
-        <form class="col s6 s6 offset-s3" method="POST" action="{{ url_for('login') }}">
+        <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('login') }}">
             <div class="card-panel">
                 <!-- username -->
                 <div class="row">
@@ -22,14 +22,14 @@
                 </div>
                 <!-- register -->
                 <div class="row">
-                    <button type="submit" class="col s4 m4 offset-m4 btn-small yellow darken-2">Log In</button>
+                    <button type="submit" class="col s4 offset-s4 btn-small yellow darken-2 center">Log In</button>
                 </div>
             </div>
         </form>
     </div>
 
     <div class="row">
-        <div class="col s6 s6 offset-s3">
+        <div class="col s6 offset-s3">
             <p class="center-align grey-text">New Here?
                 <a href="{{ url_for('register') }}" class="yellow-text text-darken-2">Register Account</a>
             </p>

@@ -85,11 +85,11 @@
                         </div>
                         <!--Likes and Dislikes-->
                         <div class="col s12 m4 valign-wrapper" id="face-icons">
-                            <a href="{{ url_for('family_like', joke_id=joke._id)}}" class="secondary content like tooltipped" 
+                            <a href="{{ url_for('like', joke_id=joke._id)}}" class="secondary content like tooltipped" 
                                 data-position="top" data-tooltip="Click to Like!">
                                 <img src="/static/images/joyful-face.png" id="laughing-face" alt="laughing-face"></a>
                                 <span class="black-text bold like" id="counter">{{ joke.like }}</span>
-                            <a href="{{ url_for('family_dislike', joke_id=joke._id)}}" class="secondary content dislike tooltipped" 
+                            <a href="{{ url_for('dislike', joke_id=joke._id)}}" class="secondary content dislike tooltipped" 
                                 data-position="top" data-tooltip="Click to Dislike!">
                                 <img src="/static/images/frowning-face.png" id="frowning-face" alt="frowning-face"></a>
                             <span class="black-text bold dislike" id="counter">{{ joke.dislike }}</span>

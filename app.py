@@ -201,109 +201,133 @@ def dislike(joke_id):
 @app.route("/family_jokes")
 def family_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Family Jokes"}))
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    users_bookmark = mongo.db.users.find_one(
-            {"username": session["user"]})["users_bookmark"]
 
-    bookmark_jokes = []
-    for bookmark in users_bookmark:
-        joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
-        bookmark_jokes.append(joke)
-    return render_template(
-        "family_jokes.html", username=username.title(),
-        users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
-        joke=joke, jokes=jokes)
+    if "user" in session:
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        users_bookmark = mongo.db.users.find_one(
+                {"username": session["user"]})["users_bookmark"]
+
+        bookmark_jokes = []
+        for bookmark in users_bookmark:
+            joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
+            bookmark_jokes.append(joke)
+        return render_template(
+            "family_jokes.html", username=username.title(),
+            users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
+            joke=joke, jokes=jokes)
+
+    return render_template("family_jokes.html", jokes=jokes)
 
 
 @app.route("/food_jokes")
 def food_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Food Jokes"}))
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    users_bookmark = mongo.db.users.find_one(
-            {"username": session["user"]})["users_bookmark"]
 
-    bookmark_jokes = []
-    for bookmark in users_bookmark:
-        joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
-        bookmark_jokes.append(joke)
-    return render_template(
-        "food_jokes.html", username=username.title(),
-        users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
-        joke=joke, jokes=jokes)
+    if "user" in session:
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        users_bookmark = mongo.db.users.find_one(
+                {"username": session["user"]})["users_bookmark"]
+
+        bookmark_jokes = []
+        for bookmark in users_bookmark:
+            joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
+            bookmark_jokes.append(joke)
+        return render_template(
+            "food_jokes.html", username=username.title(),
+            users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
+            joke=joke, jokes=jokes)
+
+    return render_template("food_jokes.html", jokes=jokes)
 
 
 @app.route("/insult_jokes")
 def insult_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Insult Jokes"}))
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    users_bookmark = mongo.db.users.find_one(
-            {"username": session["user"]})["users_bookmark"]
 
-    bookmark_jokes = []
-    for bookmark in users_bookmark:
-        joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
-        bookmark_jokes.append(joke)
-    return render_template(
-        "insult_jokes.html", username=username.title(),
-        users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
-        joke=joke, jokes=jokes)
+    if "user" in session:
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        users_bookmark = mongo.db.users.find_one(
+                {"username": session["user"]})["users_bookmark"]
+
+        bookmark_jokes = []
+        for bookmark in users_bookmark:
+            joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
+            bookmark_jokes.append(joke)
+        return render_template(
+            "insult_jokes.html", username=username.title(),
+            users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
+            joke=joke, jokes=jokes)
+
+    return render_template("insult_jokes.html", jokes=jokes)
 
 
 @app.route("/word_jokes")
 def word_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Word Play Jokes"}))
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    users_bookmark = mongo.db.users.find_one(
-            {"username": session["user"]})["users_bookmark"]
 
-    bookmark_jokes = []
-    for bookmark in users_bookmark:
-        joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
-        bookmark_jokes.append(joke)
-    return render_template(
-        "word_jokes.html", username=username.title(),
-        users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
-        joke=joke, jokes=jokes)
+    if "user" in session:
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        users_bookmark = mongo.db.users.find_one(
+                {"username": session["user"]})["users_bookmark"]
+
+        bookmark_jokes = []
+        for bookmark in users_bookmark:
+            joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
+            bookmark_jokes.append(joke)
+        return render_template(
+            "word_jokes.html", username=username.title(),
+            users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
+            joke=joke, jokes=jokes)
+
+    return render_template("word_jokes.html", jokes=jokes)
 
 
 @app.route("/relationship_jokes")
 def relationship_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Relationship Jokes"}))
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    users_bookmark = mongo.db.users.find_one(
-            {"username": session["user"]})["users_bookmark"]
 
-    bookmark_jokes = []
-    for bookmark in users_bookmark:
-        joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
-        bookmark_jokes.append(joke)
-    return render_template(
-        "relationship_jokes.html", username=username.title(),
-        users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
-        joke=joke, jokes=jokes)
+    if "user" in session:
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        users_bookmark = mongo.db.users.find_one(
+                {"username": session["user"]})["users_bookmark"]
+
+        bookmark_jokes = []
+        for bookmark in users_bookmark:
+            joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
+            bookmark_jokes.append(joke)
+        return render_template(
+            "relationship_jokes.html", username=username.title(),
+            users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
+            joke=joke, jokes=jokes)
+
+    return render_template("relationship_jokes.html", jokes=jokes)
 
 
 @app.route("/yo_jokes")
 def yo_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Yo Momma Jokes"}))
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    users_bookmark = mongo.db.users.find_one(
-            {"username": session["user"]})["users_bookmark"]
 
-    bookmark_jokes = []
-    for bookmark in users_bookmark:
-        joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
-        bookmark_jokes.append(joke)
-    return render_template(
-        "yo_jokes.html", username=username.title(),
-        users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
-        joke=joke, jokes=jokes)
+    if "user" in session:
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        users_bookmark = mongo.db.users.find_one(
+                {"username": session["user"]})["users_bookmark"]
+
+        bookmark_jokes = []
+        for bookmark in users_bookmark:
+            joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
+            bookmark_jokes.append(joke)
+        return render_template(
+            "yo_jokes.html", username=username.title(),
+            users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
+            joke=joke, jokes=jokes)
+
+    return render_template("yo_jokes.html", jokes=jokes)
 
 
 if __name__ == "__main__":
