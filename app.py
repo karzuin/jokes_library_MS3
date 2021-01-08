@@ -23,25 +23,32 @@ mongo = PyMongo(app)
 @app.route("/get_jokes")
 def get_jokes():
     jokes = list(mongo.db.jokes.find())
-    if "user" in session:
+    # credit the following code to CI Tutor Tim   
+    if "user" in session: # checks if user is in session
+        # finding the logged-in user and only getting their users_bookmark key
         users_bookmark = list(mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"])
+        # renders the template with the bookmarked jokes if user is logged in
         return render_template(
             "jokes.html", jokes=jokes, users_bookmark=users_bookmark)
+        # otherwise renders the template with just jokes
     return render_template("jokes.html", jokes=jokes)
 
 
 @app.route("/coll_bookmarks/<username>", methods=["GET", "POST"])
 def coll_bookmarks(username):
+    # credit the following code to CI Tutor Johann
+    # gets user and users bookmark list from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     users_bookmark = mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"]
-
+    #  loop through that list to find joke id in the users bookmark key and push to bookmark jokes collection. 
     bookmark_jokes = []
     for bookmark in users_bookmark:
         joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
         bookmark_jokes.append(joke)
+    #  The bookmarked jokes are then rendered onto the template
     return render_template(
         "coll_bookmarks.html", username=username.title(),
         users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
@@ -58,7 +65,7 @@ def search():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-    # to check if username already exists in Mongo DB
+        # to check if username already exists in Mongo DB
         existing_user = mongo.db.users.find_one(
         {"username": request.form.get("username").lower()})
 
@@ -118,7 +125,8 @@ def logout():
 
 @app.route("/add_joke", methods=["GET", "POST"])
 def add_joke():
-    if request.method == "POST":
+    # submits form to database
+    if request.method == "POST": 
         joke = {
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
@@ -136,6 +144,7 @@ def add_joke():
 
 @app.route("/edit_joke/<joke_id>", methods=["GET", "POST"])
 def edit_joke(joke_id):
+    # submits form to database
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
@@ -197,7 +206,6 @@ def family_jokes():
     users_bookmark = mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"]
 
-    # retrieves the bookmarked jokes and displays on the template
     bookmark_jokes = []
     for bookmark in users_bookmark:
         joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
@@ -208,20 +216,6 @@ def family_jokes():
         joke=joke, jokes=jokes)
 
 
-@app.route("/family_like/<joke_id>", methods=["GET", "POST"])
-def family_like(joke_id):
-    joke = mongo.db.jokes.find_one_and_update(
-        {"_id": ObjectId(joke_id)}, {"$inc": {"like": 1}})
-    return redirect(url_for("family_jokes", joke=joke))
-
-
-@app.route("/family_dislike/<joke_id>", methods=["GET", "POST"])
-def family_dislike(joke_id):
-    joke = mongo.db.jokes.find_one_and_update(
-        {"_id": ObjectId(joke_id)}, {"$inc": {"dislike": 1}})
-    return redirect(url_for("family_jokes", joke=joke))
-
-
 @app.route("/food_jokes")
 def food_jokes():
     jokes = list(mongo.db.jokes.find({"category_name": "Food Jokes"}))
@@ -229,7 +223,7 @@ def food_jokes():
         {"username": session["user"]})["username"]
     users_bookmark = mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"]
-    # retrieves the bookmarked jokes and displays on the template
+
     bookmark_jokes = []
     for bookmark in users_bookmark:
         joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
@@ -247,7 +241,7 @@ def insult_jokes():
         {"username": session["user"]})["username"]
     users_bookmark = mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"]
-    # retrieves the bookmarked jokes and displays on the template
+
     bookmark_jokes = []
     for bookmark in users_bookmark:
         joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
@@ -265,7 +259,7 @@ def word_jokes():
         {"username": session["user"]})["username"]
     users_bookmark = mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"]
-    # retrieves the bookmarked jokes and displays on the template
+
     bookmark_jokes = []
     for bookmark in users_bookmark:
         joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
@@ -273,7 +267,7 @@ def word_jokes():
     return render_template(
         "word_jokes.html", username=username.title(),
         users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
-        joke=joke, jokes=jokes)   
+        joke=joke, jokes=jokes)
 
 
 @app.route("/relationship_jokes")
@@ -283,7 +277,7 @@ def relationship_jokes():
         {"username": session["user"]})["username"]
     users_bookmark = mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"]
-    # retrieves the bookmarked jokes and displays on the template
+
     bookmark_jokes = []
     for bookmark in users_bookmark:
         joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
@@ -301,7 +295,7 @@ def yo_jokes():
         {"username": session["user"]})["username"]
     users_bookmark = mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"]
-    # retrieves the bookmarked jokes and displays on the template
+
     bookmark_jokes = []
     for bookmark in users_bookmark:
         joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
