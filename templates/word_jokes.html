@@ -4,21 +4,21 @@
     <div class="row card-panel amber lighten-5">
         <form action="{{ url_for('search') }}" method="POST" class="col s12">
             <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
+                <div class="input-field col s12">
                     <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
                     <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                    <label for="query">Search Jokes</label>
+                    <label for="query" id="searchbox">Search Jokes</label>
                 </div>
-                <div class="col s12 m4">
-                    <a href="{{ url_for('get_jokes') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="yellow darken-3 btn text-shadow">
-                        <i class="fas fa-search left"></i> Search
+                <div class="col s12 m10">
+                    <a href="{{ url_for('get_jokes') }}" class="search-btns red btn text-shadow">Reset</a>
+                    <button type="submit" class="search-btns yellow darken-3 btn text-shadow">
+                        Search
                     </button>
                 </div>
             </div>
         </form>
     </div>
-    <div class="col s9 grey-text text-darken-2 center-align">
+    <div class="col s9 teal-text text-darken-2 center-align">
         <h3>Word Play Jokes</h3>
     </div>
     <div class="row section">
@@ -59,7 +59,7 @@
                     <!--Edit and Delete-->
                         <div class="col s12 m4" id="edit-delete">
                     {% if session.user|lower == joke.created_by|lower %}
-                            <div class="col s6 valign-wrapper edit-delete" id="edit">
+                            <div class="col s4 offset-s2 m6 valign-wrapper edit-delete" id="edit">
                             <a href="{{ url_for('edit_joke', joke_id=joke._id)}}" class="btn-small green darken-2">Edit</a>
                             </div>
                         <!-- Modal Trigger -->

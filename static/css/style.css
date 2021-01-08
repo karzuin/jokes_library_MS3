@@ -3,14 +3,15 @@ body {
 }
 
 nav ul a{
-    color: gray;
+    color: #009688;
 }
 
-.flashes h4 {
+.flashes h3 {
     line-height: 2;
-    width: 30%;
+    width: auto;
     margin: auto;
-    color: grey;
+    color: #009688;
+    background-color: none;
 }
 
 .card-image img {
@@ -20,6 +21,10 @@ nav ul a{
 .btn-small {
     margin: 10px;
 }
+
+.search-btns {
+        margin: 5px;
+    }
 
 #counter {
     margin: 0px 10px 0px;
@@ -31,6 +36,8 @@ nav ul a{
 
 .social-links i {
     font-size: 30px;
+    color: #009688;
+    margin: 10px;
 }
 
 .copyright {
@@ -46,7 +53,6 @@ nav ul a{
     }
 
     .btn-small {
-        width: 80%;
         font-size: 8px;
     }
 
@@ -86,7 +92,6 @@ nav ul a{
     }
 
     .btn-small {
-        width: 80%;
         font-size: 10px;
     }
 
@@ -127,7 +132,6 @@ nav ul a{
     }
 
     .btn-small {
-        width: 80%;
         font-size: 12px;
     }
 
@@ -159,6 +163,10 @@ nav ul a{
 
 @media only screen and (min-width: 760px) {
 
+    #hero-text {
+        font-size: 40px;
+    }
+    
     #searchbox {
         font-size: 20px;
     }
