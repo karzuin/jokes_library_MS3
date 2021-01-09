@@ -102,7 +102,7 @@ def login():
                     flash("Welcome, {}!".format(
                         request.form.get("username").capitalize()))
                     return redirect(url_for(
-                         "coll_bookmarks", username=session["user"]))
+                         "get_jokes", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
