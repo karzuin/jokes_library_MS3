@@ -18,6 +18,10 @@ nav ul a{
     height: 500px;
 }
 
+.card-header {
+    margin-top: 20px;
+}
+
 .btn-small {
     margin: 10px;
 }
