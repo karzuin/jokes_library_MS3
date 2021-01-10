@@ -23,8 +23,8 @@ mongo = PyMongo(app)
 @app.route("/get_jokes")
 def get_jokes():
     jokes = list(mongo.db.jokes.find())
-    # credit the following code to CI Tutor Tim   
-    if "user" in session: # checks if user is in session
+    # credit the following code to CI Tutor Tim
+    if "user" in session:  # checks if user is in session
         # finding the logged-in user and only getting their users_bookmark key
         users_bookmark = list(mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"])
@@ -43,7 +43,8 @@ def coll_bookmarks(username):
         {"username": session["user"]})["username"]
     users_bookmark = mongo.db.users.find_one(
             {"username": session["user"]})["users_bookmark"]
-    #  loop through that list to find joke id in the users bookmark key and push to bookmark jokes collection. 
+    #  loop through that list to find joke id in the users bookmark key
+    #  and push to bookmark jokes collection.
     bookmark_jokes = []
     for bookmark in users_bookmark:
         joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
@@ -67,7 +68,7 @@ def register():
     if request.method == "POST":
         # to check if username already exists in Mongo DB
         existing_user = mongo.db.users.find_one(
-        {"username": request.form.get("username").lower()})
+            {"username": request.form.get("username").lower()})
 
         if existing_user:
             flash("Username already exists")
@@ -83,7 +84,7 @@ def register():
         # put the user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("get_jokes", username=session["user"]))
     return render_template("register.html")
 
 
@@ -97,12 +98,12 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                existing_user["password"],request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}!".format(
                         request.form.get("username").capitalize()))
                     return redirect(url_for(
-                         "get_jokes", username=session["user"]))
+                        "get_jokes", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -120,19 +121,19 @@ def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("get_jokes"))
 
 
 @app.route("/add_joke", methods=["GET", "POST"])
 def add_joke():
     # submits form to database
-    if request.method == "POST": 
+    if request.method == "POST":
         joke = {
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
             "created_by": request.form.get("created_by"),
-            "like": "",
-            "dislike": ""
+            "like": 0,
+            "dislike": 0
         }
         mongo.db.jokes.insert_one(joke)
         flash("Joke Successfully Added")

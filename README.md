@@ -1,45 +1,166 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# <p align="center">[Laugh Out Loud!](https://karzuin.github.io/jokes_library_MS3/)</p>
 
-Welcome karzuin,
+A website that has a collection of jokes to make people laugh and lighten their mood in these challenging times! 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+Reasons users may be want to play this game:
+- They like reading or collecting jokes. 
+- To pass the time. 
+- To laugh out loud, giggle or improve their mood. 
+- Aspiring comedians looking for inspiration.
 
-## Gitpod Reminders
+## User journey:
+1.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+<p align="center"><img width="200" height="250" src="readme-images/homepage.png"></p>
 
-`python3 -m http.server`
+## User stories:
 
-A blue button should appear to click: *Make Public*,
+- 
 
-Another blue button should appear to click: *Open Browser*.
+## Wireframes
+I used [Pencil](https://pencil.evolus.vn/) to create [wireframes](https://github.com/karzuin/jokes_library_MS3/tree/master/wireframes) in desktop, tablet and phone view.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+# Features
 
-A blue button should appear to click: *Make Public*,
+The homepage consists of the main heading and 
 
-Another blue button should appear to click: *Open Browser*.
+# Features Left to Implement
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+-
 
-## Updates Since The Instructional Video
+# Technologies Used
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- [Gitpod](https://gitpod.io/) 
+  - IDE (Integrated Development Environment).
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- [GitHub](github.com/) 
+  - The remote hosting platform. 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- [HTML 5](https://en.wikipedia.org/wiki/HTML5), [CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) and 
+[JavaScript](https://www.javascript.com/)
+  - The programming languages used for this project.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) 
+  - To see visually the elements of what each code produced, what happens if code is changed, and responsiveness of different device sizes.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- [Autoprefixer](https://autoprefixer.github.io/)
+  - To check CSS browser compatibility.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- [Jigsaw](https://jigsaw.w3.org/css-validator) 
+  - To check for any errors in the CSS code.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- [W3C Markup Validator](https://validator.w3.org/) 
+  - To check for any errors in HTML code.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- [Font Awesome](https://fontawesome.com/) 
+  - This library was used for the copyright icons.
 
---------
+- [Google Fonts](https://fonts.google.com/) 
+  - This is where I found the Quicksand font family.
 
-Happy coding!
+- [Favicon](https://favicon.io) 
+  - To include a lego icon on the web browser tab.
+
+# Testing 
+Testing information is found on a separate file [TESTING.md](TESTING.md)
+
+# Deployment
+
+  
+### How I deployed my MS2 memory game project remotely to Github pages:
+
+1. Go to [GitHub.com](https://github.com/)
+
+2. Log into my account
+
+3. Click on ‘Repositories’
+
+4. Click on ‘MS2’
+
+5. Click on ‘Settings’
+
+6. Scroll down to the ‘Github Pages’ section.
+
+7. Under the ‘Source’ heading there is a dropdown menu click on ‘None’, and select ‘Master Branch’. Click on save.
+
+8. The page refreshes and goes back to the top of the page, scroll down to ‘Github Pages’ section and find ‘Your site is ready to be published at ________’ with your link. The website is deployed.
+
+   [Follow this link](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+on how to deploy to Github pages.
+
+### How to run code from my MS2 memory game project by cloning in Github to Repl:
+
+1. Go to [GitHub.com](https://github.com/)
+
+2. Log into my account
+
+3. Click on ‘Repositories’
+
+4. Click on ‘MS2’
+
+5. Click on the green button ‘Clone or download’
+
+6. Click on ‘Download Zip’
+
+7. Open IDE [Repl.it](https://repl.it/)
+
+8. Upload folder or files
+
+### How to run code from my MS2 by cloning in Github to Gitpod:
+
+1. Go to [GitHub.com](https://github.com/)
+
+2. Log into my account
+
+3. Click on ‘Repositories’
+
+4. Click on ‘MS2’
+
+5. Click on the green button ‘Clone or download’
+
+6. Click on the icon that looks like a clipboard on the right side of the URL (this copies URL link)
+
+7. Open repo or create new repo
+
+8. Open terminal
+
+9. Type `git clone` and paste URL link and press enter.
+
+# Credits
+
+### Content
+
+#### Text for the jokes.html:
+
+- Is written by me.
+
+### Media
+
+#### Images for base.html:
+
+- Hero image from [The Alternative UK](https://www.thealternative.org.uk/dailyalternative/2019/2/22/laughter-and-politics)
+
+- Icon of laughing with tears face emoji for the like link [ICONS8](https://icons8.com/icons/set/laughing-emoji)
+
+- Icon of the frowning face emoji for the dislike link [ICONS8](https://icons8.com/icons/set/frowning-emoji)
+
+#### Image for web browser tab:
+
+- [ICONS8](https://icons8.com/icons/set/lego)
+
+### Code
+
+- The memory card game template code is from [Tania Rascia](https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/).
+
+- [W3 Schools](https://www.w3schools.com/css/css3_3dtransforms.asp) to keep cards visible when matched.
+
+- [Sandra Israel Ovirih](https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript) pointed me in the right direction of how to create code for 
+the timer, counter and popup modal features.
+
+- [Stack Overflow](https://stackoverflow.com/questions/952924/javascript-chop-slice-trim-off-last-character-in-string) 
+to use slice method for timer.
+
+
+# Acknowledgements
+
+Also thank you to the [Code Institute](https://codeinstitute.net/) slack channel, [CI](https://codeinstitute.net/) tutors and mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/).
