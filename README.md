@@ -1,6 +1,10 @@
 # <p align="center">[Laugh Out Loud!](https://karzuin.github.io/jokes_library_MS3/)</p>
 
 A website that has a collection of jokes to make people laugh and lighten their mood in these challenging times! 
+Web pages that are easy to navigate with a simple layout and light, fresh colours. 
+Jokes are all displayed on the homepage but are also categorised for easy access. All users can read and vote to like or dislike jokes.
+Users can also register to gain access to options of submitting, editing and deleting their jokes, bookmarking and collecting jokes of 
+other users.
 
 Reasons users may be want to play this game:
 - They like reading or collecting jokes. 
@@ -8,17 +12,48 @@ Reasons users may be want to play this game:
 - To laugh out loud, giggle or improve their mood. 
 - Aspiring comedians looking for inspiration.
 
-## User journey:
-1.
+## Table of Contents
 
-<p align="center"><img width="200" height="250" src="readme-images/homepage.png"></p>
+* [UX](#ux)
+  * [User Stories](#user-stories)
+  * [Design](#design)
+  * [Wireframes](#wireframes)
+* [Features](#features)
+* [Technologies Used](#technologies-used)
+* [Defensive Design](#defensive-design)
+  * [Features Testing](#features-testing)
+  * [Defensive Design Testing](#defensive-design-testing)
+  * [Browser Compatibility Testing](#browser-compatibility-testing)
+* [Deployment](#deployment)
+* [Credits and References](#credits)
 
-## User stories:
+## UX<hr>
 
-- 
+## User stories:<hr>
 
-## Wireframes
-I used [Pencil](https://pencil.evolus.vn/) to create [wireframes](https://github.com/karzuin/jokes_library_MS3/tree/master/wireframes) in desktop, tablet and phone view.
+#### All Users
+
+- As a user, I want the website to be easy to understand and navigate.
+- As a user, I want the website to be clean and simple looking.
+- As a user, I want to be able to read jokes on the homepage.
+- As a user, I want to be able to access different categories of jokes easily from the homepage.
+- As a user, I want to be able to search for jokes.
+- As a user, I want to be able to like and dislike each joke and see the number count.
+- As a user, I want to be able to register easily and have that confirmed.
+
+#### Registered Users
+
+- As a user, I want to be able to log in easily and have that confirmed.
+- As a user, I want to be able to submit my own jokes easily and have that confirmed.
+- As a user, I want to be able to edit my jokes and have that confirmed.
+- As a user, I want to be able to bookmark jokes from other users I like and have that confirmed.
+- As a user, I want to be able to un-bookmark jokes on the collections page, home page and category page and have that confirmed.
+- As a user, I want to be able to see the bookmarked jokes in my collections.
+
+
+## Wireframes<hr>
+I used [Pencil](https://pencil.evolus.vn/) to create [wireframes](https://github.com/karzuin/jokes_library_MS3/tree/master/wireframes) 
+in desktop, tablet and phone view.
 
 # Features
 
@@ -67,7 +102,7 @@ Testing information is found on a separate file [TESTING.md](TESTING.md)
 # Deployment
 
   
-### How I deployed my MS2 memory game project remotely to Github pages:
+### How I deployed my MS3 jokes library project remotely to Github pages:
 
 1. Go to [GitHub.com](https://github.com/)
 
@@ -75,7 +110,7 @@ Testing information is found on a separate file [TESTING.md](TESTING.md)
 
 3. Click on ‘Repositories’
 
-4. Click on ‘MS2’
+4. Click on ‘MS3’
 
 5. Click on ‘Settings’
 

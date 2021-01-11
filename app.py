@@ -63,6 +63,20 @@ def search():
     return render_template("jokes.html", jokes=jokes)
 
 
+@app.route("/like/<joke_id>", methods=["GET", "POST"])
+def like(joke_id):
+    joke = mongo.db.jokes.find_one_and_update(
+        {"_id": ObjectId(joke_id)}, {"$inc": {"like": 1}})
+    return redirect(url_for("get_jokes", joke=joke))
+
+
+@app.route("/dislike/<joke_id>", methods=["GET", "POST"])
+def dislike(joke_id):
+    joke = mongo.db.jokes.find_one_and_update(
+        {"_id": ObjectId(joke_id)}, {"$inc": {"dislike": 1}})
+    return redirect(url_for("get_jokes", joke=joke))
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -98,11 +112,11 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"],request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}!".format(
-                        request.form.get("username").capitalize()))
-                    return redirect(url_for(
+                existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}!".format(
+                    request.form.get("username").capitalize()))
+                return redirect(url_for(
                         "get_jokes", username=session["user"]))
             else:
                 # invalid password match
@@ -152,7 +166,8 @@ def edit_joke(joke_id):
             "joke_description": request.form.get("joke_description"),
             "created_by": request.form.get("created_by"),
         }
-        mongo.db.jokes.update({"_id": ObjectId(joke_id)}, submit)
+
+        mongo.db.jokes.update_one({"_id": ObjectId(joke_id)}, submit)
         flash("Joke Successfully Updated")
 
     joke = mongo.db.jokes.find_one({"_id": ObjectId(joke_id)})
@@ -183,20 +198,6 @@ def remove_bookmark(joke_id):
         {"$pull": {"users_bookmark": ObjectId(joke_id)}})
     flash("Bookmark is Removed!")
     return redirect(url_for("get_jokes"))
-
-
-@app.route("/like/<joke_id>", methods=["GET", "POST"])
-def like(joke_id):
-    joke = mongo.db.jokes.find_one_and_update(
-        {"_id": ObjectId(joke_id)}, {"$inc": {"like": 1}})
-    return redirect(url_for("get_jokes", joke=joke))
-
-
-@app.route("/dislike/<joke_id>", methods=["GET", "POST"])
-def dislike(joke_id):
-    joke = mongo.db.jokes.find_one_and_update(
-        {"_id": ObjectId(joke_id)}, {"$inc": {"dislike": 1}})
-    return redirect(url_for("get_jokes", joke=joke))
 
 
 @app.route("/family_jokes")

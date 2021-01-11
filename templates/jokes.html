@@ -64,7 +64,7 @@
                 </div>
             </div>
         <!--Joke cards-->
-        {% if jokes|length > 0 %}
+      {% if jokes|length > 0 %}
             <div class="col s12 l9">
             {% for joke in jokes %}
                 <div class="card-panel amber lighten-5">
@@ -102,15 +102,15 @@
                             </div>
                             <div class="modal-footer">
                                 <a href="{{ url_for('delete_joke', joke_id=joke._id)}}"
-                                    class="modal-close btn red">Delete</a>
-                                <a href="{{ url_for('get_jokes') }}" class="btn grey text-shadow">
+                                    class="modal-close btn-small red">Delete</a>
+                                <a href="{{ url_for('get_jokes') }}" class="btn-small grey text-shadow">
                             Cancel</a>
                             </div>
                         </div>
+                        <!--Likes and Dislikes-->
                     {% endif %}
                         </div>
-                        <!--Likes and Dislikes-->
-                        <div class="col s12 m4 valign-wrapper" id="face-icons">
+                         <div class="col s12 m4 valign-wrapper" id="face-icons">
                             <a href="{{ url_for('like', joke_id=joke._id)}}" class="secondary content like tooltipped" 
                                 data-position="top" data-tooltip="Click to Like!">
                                 <img src="/static/images/joyful-face.png" id="laughing-face" alt="laughing-face"></a>
@@ -119,8 +119,7 @@
                                 data-position="top" data-tooltip="Click to Dislike!">
                                 <img src="/static/images/frowning-face.png" id="frowning-face" alt="frowning-face"></a>
                             <span class="black-text bold dislike" id="counter">{{ joke.dislike }}</span>
-                        </div> 
-
+                        </div>  
                     </div>   
                 </div>
             {% endfor %} 
@@ -130,9 +129,8 @@
             <div class="s6" id="no-results">
                 <h3 class="red-text text-darken-4 center-align" >No Results Found</h3>
             </div>
-        {% endif %}
-        </div>
-    
+        {% endif %} 
+    </div>
     
 
 {% endblock %}
