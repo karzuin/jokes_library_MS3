@@ -1,12 +1,12 @@
 # <p align="center">[Laugh Out Loud!](https://karzuin.github.io/jokes_library_MS3/)</p>
 
 A website that has a collection of jokes to make people laugh and lighten their mood in these challenging times! 
-Web pages that are easy to navigate with a simple layout and light, fresh colours. 
+The web pages are easy to navigate with a simple layout and light, fresh colours. 
 Jokes are all displayed on the homepage but are also categorised for easy access. All users can read and vote to like or dislike jokes.
 Users can also register to gain access to options of submitting, editing and deleting their jokes, bookmarking and collecting jokes of 
 other users.
 
-Reasons users may be want to play this game:
+Reasons users may be want to use this site:
 - They like reading or collecting jokes. 
 - To pass the time. 
 - To laugh out loud, giggle or improve their mood. 
@@ -131,7 +131,7 @@ on how to deploy to Github pages.
 
 3. Click on ‘Repositories’
 
-4. Click on ‘MS2’
+4. Click on ‘MS3’
 
 5. Click on the green button ‘Clone or download’
 
@@ -149,7 +149,7 @@ on how to deploy to Github pages.
 
 3. Click on ‘Repositories’
 
-4. Click on ‘MS2’
+4. Click on ‘MS3’
 
 5. Click on the green button ‘Clone or download’
 
@@ -185,16 +185,7 @@ on how to deploy to Github pages.
 
 ### Code
 
-- The memory card game template code is from [Tania Rascia](https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/).
-
-- [W3 Schools](https://www.w3schools.com/css/css3_3dtransforms.asp) to keep cards visible when matched.
-
-- [Sandra Israel Ovirih](https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript) pointed me in the right direction of how to create code for 
-the timer, counter and popup modal features.
-
-- [Stack Overflow](https://stackoverflow.com/questions/952924/javascript-chop-slice-trim-off-last-character-in-string) 
-to use slice method for timer.
-
+- 
 
 # Acknowledgements
 
