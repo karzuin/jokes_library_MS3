@@ -50,30 +50,61 @@ Reasons users may be want to use this site:
 - As a user, I want to be able to un-bookmark jokes on the collections page, home page and category page and have that confirmed.
 - As a user, I want to be able to see the bookmarked jokes in my collections.
 
+## Design<hr>
+
+I wanted a simple layout, easy to intuitively navigate, and light, fresh colours of white, yellow and teal to positively influence the 
+mood of the user. The buttons were bold colours of green, red, yellow and a muted grey colour for the cancel button.
+
+I used face emoji icons from ICONS8 as they were colourful for the like and dislike function.
+
+Mali font family was used throughout the website as it gives a playful, humorous, light looking feel.
 
 ## Wireframes<hr>
 I used [Pencil](https://pencil.evolus.vn/) to create [wireframes](https://github.com/karzuin/jokes_library_MS3/tree/master/wireframes) 
 in desktop, tablet and phone view.
 
-# Features
+# Features<hr>
+## Accessible to all users
 
-The homepage consists of the main heading and 
+The homepage consists of the main heading, navbar with links to the homepage, register page and log in page.
+There is a welcome message where you can click to get more information on how to use the website.
+The search box allows the user to search for jokes with keywords, they also have the option to reset the input field or search.
+The Joke Bank displays all the jokes in the database with the option to like or dislike them. On the left of the joke bank are the 
+jokes in their categories, so the user may want to read particular type of jokes.
+In the footer are social links that open up to their respective homepages.
+
+## Accessible to registered users
+
+Once logged in, the is directed to the homepage with a welcome message. The jokes now show options of bookmarking them. All bookmarked 
+jokes are displayed on their collections page. 
+The user can submit jokes into the database. 
+Once jokes are submitted the option to edit or delete them will appear on the joke card.
+They can still like and dislike jokes on any of the joke pages.
 
 # Features Left to Implement
 
 -
 
-# Technologies Used
+# Technologies Used<hr>
 
 - [Gitpod](https://gitpod.io/) 
   - IDE (Integrated Development Environment).
 
 - [GitHub](github.com/) 
-  - The remote hosting platform. 
+  - The remote storing of code platform. 
 
-- [HTML 5](https://en.wikipedia.org/wiki/HTML5), [CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) and 
-[JavaScript](https://www.javascript.com/)
-  - The programming languages used for this project.
+- [HTML 5](https://en.wikipedia.org/wiki/HTML5) for markup language.
+- [CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) cascading style language.
+- [JQuery](https://code.jquery.com/) javascript library.
+- [Materialize](https://materializecss.com/) css framework for design. 
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/) python framework.
+- [Jinja](https://jinja.palletsprojects.com/en/2.11.x/) templating with flask. 
+- [Werkzeug](https://palletsprojects.com/p/werkzeug/) autentication and authorisation. 
+- [Heroku](https://www.heroku.com/) hosting cloud platform to deploy live version of project. 
+- [Python](https://www.python.org/) backend programming language.
+- [PyMongo] (https://pymongo.readthedocs.io/en/stable/) Python API for MongoDB.
+- [MongoDB Atlas](https://www.mongodb.com/1) store, index and query data.
+- [dnspython](https://www.dnspython.org/) DNS toolkit for Python. 
 
 - [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) 
   - To see visually the elements of what each code produced, what happens if code is changed, and responsiveness of different device sizes.
@@ -82,86 +113,74 @@ The homepage consists of the main heading and
   - To check CSS browser compatibility.
 
 - [Jigsaw](https://jigsaw.w3.org/css-validator) 
-  - To check for any errors in the CSS code.
+  - To check for any errors in CSS code.
 
-- [W3C Markup Validator](https://validator.w3.org/) 
+- [W3C Markup Validator](https://validator.w3.org/)
   - To check for any errors in HTML code.
 
-- [Font Awesome](https://fontawesome.com/) 
-  - This library was used for the copyright icons.
+- [Pep8 Online](http://pep8online.com/) check for any errors in python code.
 
 - [Google Fonts](https://fonts.google.com/) 
-  - This is where I found the Quicksand font family.
+  - This is where I found the Mali font family.
 
 - [Favicon](https://favicon.io) 
-  - To include a lego icon on the web browser tab.
+  - To include a ?? icon on the web browser tab.
 
-# Testing 
+# Testing<hr>
 Testing information is found on a separate file [TESTING.md](TESTING.md)
 
-# Deployment
+# Deployment<hr>
 
   
-### How I deployed my MS3 jokes library project remotely to Github pages:
+### How to deploy the application to Heroku:
 
-1. Go to [GitHub.com](https://github.com/)
+- First I created some files that Heroku needs to run the app with. The first file tells Heroku which applications and dependencies are required
+to run the app.
 
-2. Log into my account
+- In the terminal of my IDE gitpod, type: `pip3 freeze --local > requirements.txt`
 
-3. Click on ‘Repositories’
+- Next the Procfile is what Heroku looks for to know which file runs the app and how to run it.
 
-4. Click on ‘MS3’
+- In the terminal of my IDE gitpod, type: `echo web: python app.py > Procfile`
 
-5. Click on ‘Settings’
+- Check the requirements.txt has a list of dependencies that are needed for Flask.
+- The Procfile may add a blank line at the bottom, sometimes this can cause problems when running apps on Heroku, so delete that line and 
+add, commit and push these files.
 
-6. Scroll down to the ‘Github Pages’ section.
+- Go to the Heroku website and create an account, on the dashboard click 'Create a new app', give an app name using lowercase and use '-' 
+instead of spaces.
 
-7. Under the ‘Source’ heading there is a dropdown menu click on ‘None’, and select ‘Master Branch’. Click on save.
+- Select a region and click 'Create app'.
 
-8. The page refreshes and goes back to the top of the page, scroll down to ‘Github Pages’ section and find ‘Your site is ready to be published at ________’ with your link. The website is deployed.
+- To deploy the app, go to the 'Deploy' tab, go to the 'Deployment section' and click on the 'Github' button.
 
-   [Follow this link](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
-on how to deploy to Github pages.
+- Make sure my Github profile is displayed, then search for the repository name, click 'Connect' button to connect to the app from Github.
 
-### How to run code from my MS2 memory game project by cloning in Github to Repl:
+There are different ways to connect a project to Heroku and Heroku has full documentation on how to do that via the 'Deploy' tab.
 
-1. Go to [GitHub.com](https://github.com/)
+- Since I've hid the environment variables in the env.py file Heroku won't be able to read them. Click 'Settings' tab. Click 'Reveal Config Vars'.
 
-2. Log into my account
+- Type in the following variables:
+```
+IP = 0.0.0.0
+MONGO_DBNAME = [Name of MongoDB] <br>
+MONGO_URI = mongodb+srv://:@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority
+PORT = 5000
+SECRET_KEY = [Secret key]
+```
+- Click 'Hide Config Vars'. 
 
-3. Click on ‘Repositories’
+- You can find your MongoDB URI link go to MongoDB Atlas account and click 'Clusters', click ‘Connect Cluster’ button, click 'Connect your 
+application' button. Select 'Python' as driver and version 3.6 or later.
 
-4. Click on ‘MS3’
+- Click 'Deploy' tab, click 'Enable Automatic Deployment', click 'Deploy Branch'. Heroku now receives the code from Github and starts to
+build the app. When it has finished a message 'Your app was successfully deployed', click 'View' to launch the new app.
 
-5. Click on the green button ‘Clone or download’
+### How to run the app locally:
 
-6. Click on ‘Download Zip’
 
-7. Open IDE [Repl.it](https://repl.it/)
 
-8. Upload folder or files
-
-### How to run code from my MS2 by cloning in Github to Gitpod:
-
-1. Go to [GitHub.com](https://github.com/)
-
-2. Log into my account
-
-3. Click on ‘Repositories’
-
-4. Click on ‘MS3’
-
-5. Click on the green button ‘Clone or download’
-
-6. Click on the icon that looks like a clipboard on the right side of the URL (this copies URL link)
-
-7. Open repo or create new repo
-
-8. Open terminal
-
-9. Type `git clone` and paste URL link and press enter.
-
-# Credits
+# Credits<hr>
 
 ### Content
 
