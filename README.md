@@ -20,12 +20,9 @@ Reasons users may be want to use this site:
   * [Wireframes](#wireframes)
 * [Features](#features)
 * [Technologies Used](#technologies-used)
-* [Defensive Design](#defensive-design)
-  * [Features Testing](#features-testing)
-  * [Defensive Design Testing](#defensive-design-testing)
-  * [Browser Compatibility Testing](#browser-compatibility-testing)
+* [Testing](#testing)
 * [Deployment](#deployment)
-* [Credits and References](#credits)
+* [Credits](#credits)
 
 ## UX<hr>
 
@@ -88,12 +85,8 @@ in desktop, tablet and phone view.
 
 # Technologies Used<hr>
 
-- [Gitpod](https://gitpod.io/) 
-  - IDE (Integrated Development Environment).
-
-- [GitHub](github.com/) 
-  - The remote storing of code platform. 
-
+- [Gitpod](https://gitpod.io/) IDE (Integrated Development Environment).
+- [GitHub](github.com/) The remote storing of code platform. 
 - [HTML 5](https://en.wikipedia.org/wiki/HTML5) for markup language.
 - [CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) cascading style language.
 - [JQuery](https://code.jquery.com/) javascript library.
@@ -103,7 +96,7 @@ in desktop, tablet and phone view.
 - [Werkzeug](https://palletsprojects.com/p/werkzeug/) autentication and authorisation. 
 - [Heroku](https://www.heroku.com/) hosting cloud platform to deploy live version of project. 
 - [Python](https://www.python.org/) backend programming language.
-- [PyMongo] (https://pymongo.readthedocs.io/en/stable/) Python API for MongoDB.
+- [PyMongo](https://pymongo.readthedocs.io/en/stable/) Python API for MongoDB.
 - [MongoDB Atlas](https://www.mongodb.com/1) store, index and query data.
 - [dnspython](https://www.dnspython.org/) DNS toolkit for Python. 
 - [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) To see visually the elements of what each code produced, what happens if code is changed, and responsiveness of different device sizes.
