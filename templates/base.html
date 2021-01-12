@@ -24,7 +24,7 @@
                 <nav>
                     <div class="col s10 offsets-2 nav-wrapper white lighten-2">
                         <a href="{{ url_for('get_jokes') }}" class="brand-logo center teal-text" id="hero-text">Laugh Out Loud!</a>
-                        <a href="#" data-target="mobile-demo" class="sidenav-trigger right teal-text"><i class="fas fa-bars"></i></a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger right teal-text"><i class="material-icons">menu</i></a>
                         <ul class="right hide-on-med-and-down teal-text">
                             <li><a href="{{ url_for('get_jokes') }}">Home</a></li>
                             {% if session.user %}
