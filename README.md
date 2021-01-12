@@ -66,24 +66,25 @@ in desktop, tablet and phone view.
 # Features<hr>
 ## Accessible to all users
 
-The homepage consists of the main heading, navbar with links to the homepage, register page and log in page.
-There is a welcome message where you can click to get more information on how to use the website.
-The search box allows the user to search for jokes with keywords, they also have the option to reset the input field or search.
-The Joke Bank displays all the jokes in the database with the option to like or dislike them. On the left of the joke bank are the 
-jokes in their categories, so the user may want to read particular type of jokes.
-In the footer are social links that open up to their respective homepages.
+- The homepage consists of the main heading, navbar with links to the homepage, register page and log in page.
+- There is a welcome message where you can click to get more information on how to use the website.
+- The search box allows the user to search for jokes with keywords, they also have the option to reset the input field or search.
+- The Joke Bank displays all the jokes in the database with the option to like or dislike them. 
+- On the left of the joke bank are the jokes in their categories, so the user may want to read particular type of jokes.
+- In the footer are social links that open up to their respective homepages.
 
 ## Accessible to registered users
 
-Once logged in, the is directed to the homepage with a welcome message. The jokes now show options of bookmarking them. All bookmarked 
-jokes are displayed on their collections page. 
-The user can submit jokes into the database. 
-Once jokes are submitted the option to edit or delete them will appear on the joke card.
-They can still like and dislike jokes on any of the joke pages.
+- Once logged in, the user is directed to the homepage with a welcome message. 
+- The jokes now show options of bookmarking them. 
+- All bookmarked jokes are displayed on their collections page. 
+- The user can submit jokes into the database. 
+- Once jokes are submitted the option to edit or delete them will appear on the joke card.
+- They can still like and dislike jokes on any of the joke pages.
 
 # Features Left to Implement
 
--
+- Pagination
 
 # Technologies Used<hr>
 

@@ -48,7 +48,7 @@
                     </div>
                     <div class="row">
                     <!--Bookmarks-->
-                        <div class="col s8 offset-s2 m4 valign-wrapper" id="bookmarks">
+                        <div class="col s8 offset-s3 m4 valign-wrapper" id="bookmarks">
                     {% if session.user %}
                         {% if joke._id in users_bookmark %}
                             <a href="{{ url_for('remove_bookmark', joke_id=joke._id)}}" class="btn tooltipped btn-small teal lighten-1 white-text bold" 
