@@ -165,9 +165,11 @@ def edit_joke(joke_id):
             "category_name": request.form.get("category_name"),
             "joke_description": request.form.get("joke_description"),
             "created_by": request.form.get("created_by"),
+            "like": 1,
+            "dislike": 0
         }
 
-        mongo.db.jokes.update_one({"_id": ObjectId(joke_id)}, submit)
+        mongo.db.jokes.update({"_id": ObjectId(joke_id)}, submit)
         flash("Joke Successfully Updated")
 
     joke = mongo.db.jokes.find_one({"_id": ObjectId(joke_id)})
