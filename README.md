@@ -1,4 +1,4 @@
-# <p align="center">[Laugh Out Loud!](https://karzuin.github.io/jokes_library_MS3/)</p>
+# <p align="center">[Laugh Out Loud!](https://jokes-library.herokuapp.com/)</p>
 
 A website that has a collection of jokes to make people laugh and lighten their mood in these challenging times! 
 The web pages are easy to navigate with a simple layout and light, fresh colours. 
@@ -106,34 +106,20 @@ in desktop, tablet and phone view.
 - [PyMongo] (https://pymongo.readthedocs.io/en/stable/) Python API for MongoDB.
 - [MongoDB Atlas](https://www.mongodb.com/1) store, index and query data.
 - [dnspython](https://www.dnspython.org/) DNS toolkit for Python. 
-
-- [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) 
-  - To see visually the elements of what each code produced, what happens if code is changed, and responsiveness of different device sizes.
-
-- [Autoprefixer](https://autoprefixer.github.io/)
-  - To check CSS browser compatibility.
-
-- [Jigsaw](https://jigsaw.w3.org/css-validator) 
-  - To check for any errors in CSS code.
-
-- [W3C Markup Validator](https://validator.w3.org/)
-  - To check for any errors in HTML code.
-
+- [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools) To see visually the elements of what each code produced, what happens if code is changed, and responsiveness of different device sizes.
+- [Autoprefixer](https://autoprefixer.github.io/) To check CSS browser compatibility.
+- [Jigsaw](https://jigsaw.w3.org/css-validator) To check for any errors in CSS code.
+- [W3C Markup Validator](https://validator.w3.org/) To check for any errors in HTML code.
 - [Pep8 Online](http://pep8online.com/) check for any errors in python code.
-
-- [Google Fonts](https://fonts.google.com/) 
-  - This is where I found the Mali font family.
-
-- [Favicon](https://favicon.io) 
-  - To include a ?? icon on the web browser tab.
+- [Google Fonts](https://fonts.google.com/) This is where I found the Mali font family.
+- [Favicon](https://favicon.io) To include a ?? icon on the web browser tab.
 
 # Testing<hr>
 Testing information is found on a separate file [TESTING.md](TESTING.md)
 
 # Deployment<hr>
-
   
-### How to deploy the application to Heroku:
+## How to deploy the application to Heroku:
 
 - First I created some files that Heroku needs to run the app with. The first file tells Heroku which applications and dependencies are required
 to run the app.
@@ -179,7 +165,28 @@ build the app. When it has finished a message 'Your app was successfully deploye
 
 ### How to run the app locally:
 
+For more information on [Cloning a Repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
+- Scroll to the top of this page and click on green button 'code'.
+- Click on the icon that looks like a clipboard on the right side of the URL (this copies URL link)
+- Open repo or create new repo.
+- Open a new Terminal window in your IDE.
+- Type `git clone` and paste URL link and press enter.
+- Now create a Database to use for this project with MongoDB.
+- Return to the Terminal
+- To install all required dependencies type:
+```
+pip3 install -r requirements.txt
+```
+- Create an env.py file with the following content, replacing the 'username','password', 'cluster_name' and 'database_name' with your MongoDB database values:
+```
+import os
+
+os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-ocous.mongodb.net/<database_name>?retryWrites=true&w=majority" 
+```
+- Add your env.py file to .gitignore to make sure your database information is not viewable to others
+
+- App is ready to run locally by typing `python3 app.py`
 
 # Credits<hr>
 
