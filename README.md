@@ -28,7 +28,7 @@ Reasons users may be want to use this site:
 
 ## UX<hr>
 
-## User stories:<hr>
+## User stories<hr>
 
 #### All Users
 
@@ -59,7 +59,7 @@ I used face emoji icons from ICONS8 as they were colourful for the like and disl
 Mali font family was used throughout the website as it gives a playful, humorous, light looking feel.
 
 ## Wireframes<hr>
-I used [Pencil](https://pencil.evolus.vn/) to create [wireframes](https://github.com/karzuin/jokes_library_MS3/tree/master/wireframes) 
+I used [Pencil](https://pencil.evolus.vn/) to create [wireframes]() 
 in desktop, tablet and phone view.
 
 [Back to top](#table-of-contents)
@@ -85,7 +85,8 @@ in desktop, tablet and phone view.
 
 # Features Left to Implement
 
-- Pagination
+- Pagination.
+- Where users can communicate with each other, share jokes and comment.
 
 [Back to top](#table-of-contents)
 
@@ -111,7 +112,7 @@ in desktop, tablet and phone view.
 - [W3C Markup Validator](https://validator.w3.org/) To check for any errors in HTML code.
 - [Pep8 Online](http://pep8online.com/) check for any errors in python code.
 - [Google Fonts](https://fonts.google.com/) This is where I found the Mali font family.
-- [Favicon](https://favicon.io) To include a ?? icon on the web browser tab.
+- [Favicon](https://favicon.io) To include a laughing face icon on the web browser tab.
 
 # Testing<hr>
 Testing information is found on a separate file [TESTING.md](TESTING.md)
@@ -219,7 +220,7 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 ### Code
 
-- Most of the code has been modified from the Code Institute tutorials for Development Centric Module.
+- Most of the code has been modified from the Code Institute tutorials for Data Centric Development Module.
 
 # Acknowledgements
 
