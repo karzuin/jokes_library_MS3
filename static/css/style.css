@@ -1,13 +1,16 @@
+/* Body */
 body {
     background-color: #fafafa;
     font-family: 'Mali', cursive; 
     overflow-x: hidden;
 } 
 
+/* Navbar */
 nav ul a{
     color: #009688;
 }
 
+/* Flash messages */
 .flashes h3 {
     line-height: 2;
     width: auto;
@@ -16,22 +19,27 @@ nav ul a{
     background-color: none;
 }
 
+/* Welcome message */
 .card-header {
     margin-top: 20px;
 }
 
+/* Buttons*/
 .btn-small {
     margin: 10px;
 }
 
+/* Search buttons */
 .search-btns {
         margin: 5px;
     }
 
+/* Like/Dislike counter */ 
 #counter {
     margin: 0px 10px 0px;
 }
 
+/* Social media links */
 .social-links {
     margin: 20px;
 }
@@ -42,11 +50,12 @@ nav ul a{
     margin: 10px;
 }
 
+/* Footer */
 .copyright {
     padding-bottom: 20px;
 }
 
-/*-----MEDIA QUERIES-----*/
+/* MEDIA QUERIES for Mobile */
 
 @media only screen and (max-width: 325px) {
 
@@ -163,6 +172,8 @@ nav ul a{
     
 }
 
+/* MEDIA QUERIES for Tablet/iPad */
+
 @media only screen and (min-width: 760px) {
 
     #hero-text {
@@ -198,6 +209,8 @@ nav ul a{
     }
     
 }
+
+/* MEDIA QUERIES for Laptops */
 
 @media only screen and (min-width: 1020px) {
 

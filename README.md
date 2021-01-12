@@ -1,5 +1,7 @@
 # <p align="center">[Laugh Out Loud!](https://jokes-library.herokuapp.com/)</p>
 
+![](readme-images/allresponsive.png)
+
 A website that has a collection of jokes to make people laugh and lighten their mood in these challenging times! 
 The web pages are easy to navigate with a simple layout and light, fresh colours. 
 Jokes are all displayed on the homepage but are also categorised for easy access. All users can read and vote to like or dislike jokes.
@@ -60,6 +62,8 @@ Mali font family was used throughout the website as it gives a playful, humorous
 I used [Pencil](https://pencil.evolus.vn/) to create [wireframes](https://github.com/karzuin/jokes_library_MS3/tree/master/wireframes) 
 in desktop, tablet and phone view.
 
+[Back to top](#table-of-contents)
+
 # Features<hr>
 ## Accessible to all users
 
@@ -82,6 +86,8 @@ in desktop, tablet and phone view.
 # Features Left to Implement
 
 - Pagination
+
+[Back to top](#table-of-contents)
 
 # Technologies Used<hr>
 
@@ -109,6 +115,8 @@ in desktop, tablet and phone view.
 
 # Testing<hr>
 Testing information is found on a separate file [TESTING.md](TESTING.md)
+
+[Back to top](#table-of-contents)
 
 # Deployment<hr>
   
@@ -181,13 +189,19 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 - App is ready to run locally by typing `python3 app.py`
 
+[Back to top](#table-of-contents)
+
 # Credits<hr>
 
 ### Content
 
-#### Text for the jokes.html:
+#### Text for welcome message:
 
 - Is written by me.
+
+#### Jokes in the library:
+
+- [Laughing Factory](http://www.laughfactory.com/)
 
 ### Media
 
@@ -205,8 +219,11 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 ### Code
 
-- 
+- Most of the code has been modified from the Code Institute tutorials for Development Centric Module.
 
 # Acknowledgements
 
-Also thank you to the [Code Institute](https://codeinstitute.net/) slack channel, [CI](https://codeinstitute.net/) tutors and mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/).
+Also thank you to the [Code Institute](https://codeinstitute.net/) slack channel, [CI](https://codeinstitute.net/) tutors, especially 
+[CI Tutor Tim](https://www.linkedin.com/in/travel-tim-nelson/) and [CI Tutor Johann](https://github.com/wondrousWebWorks) and mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/).
+
+[Back to top](#table-of-contents)
