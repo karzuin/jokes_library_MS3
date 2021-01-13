@@ -15,7 +15,7 @@
 
 Used [W3C HTML validator](https://validator.w3.org/#validate_by_input) website via the direct input path. 
 
-1. Index.html validator results.
+1. Index.html validator results. Due to the jinja templating it throws errors for the majority of the code.
 
 <p align="center"><img width="350" height="300" src="readme-images/html_valid.png"></p>
 
@@ -29,6 +29,11 @@ Used[JShint](https://jshint.com/) website.
 3. main.js validator results.
 
 <p align="center"><img width="350" height="300" src="readme-images/jshint_valid.png"></p>
+
+Used [PEP8](http://pep8online.com/).
+4. app.py validator results.
+
+<p align="center"><img width="350" height="300" src="readme-images/pep8_valid.png"></p>
 
 [Back to top](#table-of-contents)
 
