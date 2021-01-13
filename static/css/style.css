@@ -53,6 +53,7 @@ nav ul a{
 /* Footer */
 .copyright {
     padding-bottom: 20px;
+    font-size: 25px;
 }
 
 /* MEDIA QUERIES for Mobile */
@@ -94,6 +95,11 @@ nav ul a{
     #counter {
         margin-left: 15px;
     }
+
+    .copyright {
+    font-size: 15px;
+    }
+
 }
 
 @media only screen and (min-width: 375px) {
@@ -133,6 +139,10 @@ nav ul a{
     #counter {
         margin-left: 15px;
     }
+
+    .copyright {
+    font-size: 15px;
+    }
     
 }
 
@@ -168,6 +178,10 @@ nav ul a{
 
     #counter {
         margin-left: 15px;
+    }
+
+    .copyright {
+    font-size: 15px;
     }
     
 }
@@ -206,6 +220,10 @@ nav ul a{
 
     #counter {
         margin-left: 15px;
+    }
+
+    .copyright {
+    font-size: 25px;
     }
     
 }

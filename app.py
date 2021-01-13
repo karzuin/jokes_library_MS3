@@ -18,10 +18,15 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 '''
-This function gets all the jokes from the database and renders them onto the homepage.
-If the user is signed in then their bookmarked jokes will also appear on the homepage
+This function gets all the jokes from the database and
+renders them onto the homepage.
+If the user is signed in then their bookmarked jokes will
+also appear on the homepage
 '''
+
+
 @app.route("/")
 @app.route("/get_jokes")
 def get_jokes():
@@ -39,9 +44,11 @@ def get_jokes():
 
 
 '''
-The coll_bookmarks function finds all the users bookmarked jokes 
-to display on the collections page.
+The coll_bookmarks function finds all the users bookmarked
+jokes to display on the collections page.
 '''
+
+
 @app.route("/coll_bookmarks/<username>", methods=["GET", "POST"])
 def coll_bookmarks(username):
     # credit the following code to CI Tutor Johann
@@ -63,11 +70,12 @@ def coll_bookmarks(username):
         joke=joke)
 
 
+'''
+The search function searches through the jokes database matching
+the query keyword and renders the joke(s) onto the homepage.
+'''
 
-'''
-The search function searches through the jokes database matching the query keyword
-and renders the joke(s) onto the homepage.
-'''
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -76,13 +84,22 @@ def search():
 
 
 '''
-The like function
+The like function finds and updates the joke id and adds one
+count each click.
 '''
+
+
 @app.route("/like/<joke_id>", methods=["GET", "POST"])
 def like(joke_id):
     joke = mongo.db.jokes.find_one_and_update(
         {"_id": ObjectId(joke_id)}, {"$inc": {"like": 1}})
     return redirect(url_for("get_jokes", joke=joke))
+
+
+'''
+The dislike function finds and updates the joke id and adds one
+count each click.
+'''
 
 
 @app.route("/dislike/<joke_id>", methods=["GET", "POST"])
@@ -93,8 +110,11 @@ def dislike(joke_id):
 
 
 '''
-The register function checks if the user already exists, if no, creates a new user for the database.
+The register function checks if the user already exists, if no,
+creates a new user for the database.
 '''
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
