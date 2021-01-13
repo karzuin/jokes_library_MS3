@@ -59,7 +59,7 @@ I used face emoji icons from ICONS8 as they were colourful for the like and disl
 Mali font family was used throughout the website as it gives a playful, humorous, light looking feel.
 
 ## Wireframes<hr>
-I used [Pencil](https://pencil.evolus.vn/) to create [wireframes](https://github.com/karzuin/jokes_library_MS3/wireframes) 
+I used [Pencil](https://pencil.evolus.vn/) to create [wireframes](https://github.com/karzuin/jokes_library_MS3/tree/master/wireframes) 
 in desktop, tablet and phone view.
 
 [Back to top](#table-of-contents)

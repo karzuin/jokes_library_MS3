@@ -42,9 +42,14 @@ Used [PEP8](http://pep8online.com/).
 #### All Users
 
 - As a user, I want the website to be easy to understand and navigate.
-    - As the user can see from the homepage...
+    - As the user can see from the homepage everything is clearly described and labelled. 
+    - The fixed navbar on the top shows the tabs to the Home, Register and Log In pages.
+
 - As a user, I want the website to be clean and simple looking.
+    - The user can see that the layout is very simple, clean and spacious looking.
+
 - As a user, I want to be able to read jokes on the homepage.
+    - The user can scroll down and immediately see the joke cards
 - As a user, I want to be able to access different categories of jokes easily from the homepage.
 - As a user, I want to be able to search for jokes.
 - As a user, I want to be able to like and dislike each joke and see the number count.
