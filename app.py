@@ -169,7 +169,7 @@ def logout():
 '''
 The add joke function checks if the user is logged in,
 if not redirects to log in. If yes, they fill in the form
-and submits it to the database which then renders a 
+and submits it to the database which then renders a
 new joke onto the homepage.
 '''
 
