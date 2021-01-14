@@ -113,6 +113,7 @@ in desktop, tablet and phone view.
 - [Pep8 Online](http://pep8online.com/) check for any errors in python code.
 - [Google Fonts](https://fonts.google.com/) This is where I found the Mali font family.
 - [Favicon](https://favicon.io) To include a laughing face icon on the web browser tab.
+- [Resizeimage](https://resizeimage.net/) To crop hero image.
 
 # Testing<hr>
 Testing information is found on a separate file [TESTING.md](TESTING.md)

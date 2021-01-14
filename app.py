@@ -197,11 +197,14 @@ new joke onto the homepage.
 @app.route("/add_joke", methods=["GET", "POST"])
 def add_joke():
     if "user" in session:
+        current_user = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
         # submits form to database
         if request.method == "POST":
             joke = {
                 "category_name": request.form.get("category_name"),
                 "joke_description": request.form.get("joke_description"),
+                "created_by": current_user,
                 "like": 0,
                 "dislike": 0
             }
@@ -228,11 +231,14 @@ edit joke page.
 @app.route("/edit_joke/<joke_id>", methods=["GET", "POST"])
 def edit_joke(joke_id):
     if "user" in session:
+        current_user = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
         # submits form to database
         if request.method == "POST":
             submit = {
                 "category_name": request.form.get("category_name"),
                 "joke_description": request.form.get("joke_description"),
+                "created_by": current_user,
                 "like": 1,
                 "dislike": 0
             }

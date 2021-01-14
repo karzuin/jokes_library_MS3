@@ -6,7 +6,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="static/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="static/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="static/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="static/favicon_io/manifest.txt">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
         integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" type="text/css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -34,7 +34,7 @@
                             <li><a href="{{ url_for('get_jokes') }}">Home</a></li>
                             {% if session.user %}
                                 <li><a href="{{ url_for('coll_bookmarks', username=session['user']) }}">Collection</a></li>
-                                <li><a href="{{ url_for('add_joke')}}">Submit A Joke</a></li>
+                                <li><a href="{{ url_for('add_joke') }}">Submit A Joke</a></li>
                                 <li><a href="{{ url_for('logout')}}">Log Out</a></li>
                             {% else %}
                                 <li><a href="{{ url_for('register') }}">Register</a></li>

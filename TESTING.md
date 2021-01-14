@@ -59,6 +59,7 @@ Used [PEP8](http://pep8online.com/).
 
 - As a user, I want to be able to log in easily and have that confirmed.
 - As a user, I want to be able to submit my own jokes easily and have that confirmed.
+    - 
 - As a user, I want to be able to edit my jokes and have that confirmed.
 - As a user, I want to be able to bookmark jokes from other users I like and have that confirmed.
 - As a user, I want to be able to un-bookmark jokes on the collections page, home page and category page and have that confirmed.
@@ -98,8 +99,9 @@ In mobile phone mode,
 
 ## Bugs During Testing<hr>
 
-- **Bug**: 
-- **Debugged**: 
+- **Bug**: User can save link to submit a joke and log out and then paste the submit a joke link and add a joke.
+- **Debugged**: Added a check if statement in add_joke view and edit_joke view to ensure user is logged in or they will be redirected 
+to the log in page.
 
 - **Bug**: 
 - **Debugged**: 
