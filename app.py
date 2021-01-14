@@ -31,7 +31,7 @@ also appear on the homepage
 @app.route("/get_jokes")
 def get_jokes():
     jokes = list(mongo.db.jokes.find())
-    # credit the following code to CI Tutor Tim
+    # credit the following code to CI tutor Tim
     if "user" in session:  # checks if user is in session
         # finding the logged-in user and only getting their users_bookmark key
         users_bookmark = list(mongo.db.users.find_one(
@@ -52,7 +52,7 @@ jokes to display on the collections page.
 @app.route("/coll_bookmarks/<username>", methods=["GET", "POST"])
 def coll_bookmarks(username):
     if "user" in session:
-        # credit the following code to CI Tutor Johann
+        # credit the following code to CI tutor Johann
         # gets user and users bookmark list from database
         username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]

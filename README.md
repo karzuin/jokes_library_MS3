@@ -22,6 +22,7 @@ Reasons users may be want to use this site:
   * [Wireframes](#wireframes)
 * [Features](#features)
 * [Technologies Used](#technologies-used)
+* [Data Structure](#data-structure)
 * [Testing](#testing)
 * [Deployment](#deployment)
 * [Credits](#credits)
@@ -64,12 +65,12 @@ in desktop, tablet and phone view.
 
 [Back to top](#table-of-contents)
 
-# Features<hr>
+## Features<hr>
 ## Accessible to all users
 
 - The homepage consists of the main heading, navbar with links to the homepage, register page and log in page.
 - There is a welcome message where you can click to get more information on how to use the website.
-- The search box allows the user to search for jokes with keywords, they also have the option to reset the input field or search.
+- The search box allows the user to quickly search for jokes, usernames and categories with keywords, they also have the option to reset the input field or search.
 - The Joke Bank displays all the jokes in the database with the option to like or dislike them. 
 - On the left of the joke bank are the jokes in their categories, so the user may want to read particular type of jokes.
 - In the footer are social links that open up to their respective homepages.
@@ -83,14 +84,20 @@ in desktop, tablet and phone view.
 - Once jokes are submitted the option to edit or delete them will appear on the joke card.
 - They can still like and dislike jokes on any of the joke pages.
 
-# Features Left to Implement
+## Features Left to Implement
 
 - Pagination.
+- Limiting search results displayed on each page.
+- Sorting and ordering search results.
 - Where users can communicate with each other, share jokes and comment.
+- Admin user and management control.
+- Category management.
+- User and admin interface.
+- When jokes are liked/disliked/bookmarked to stay on the joke rather than reload and go back to the top of page.
 
 [Back to top](#table-of-contents)
 
-# Technologies Used<hr>
+## Technologies Used<hr>
 
 - [Gitpod](https://gitpod.io/) IDE (Integrated Development Environment).
 - [GitHub](github.com/) The remote storing of code platform. 
@@ -115,12 +122,23 @@ in desktop, tablet and phone view.
 - [Favicon](https://favicon.io) To include a laughing face icon on the web browser tab.
 - [Resizeimage](https://resizeimage.net/) To crop hero image.
 
-# Testing<hr>
+## Data structure<hr>
+
+MongoDB Atlas was used to store the data for this project. It consists of 3 collections:
+1. Categories: 
+    - Two keys: Primary ObjectId and category name.
+2. Users:
+    - Four keys: Primary ObjectId, username, password and users_bookmark.
+3. Jokes:
+    - Six keys: Primary ObjectId, category name, joke description, created by, like and dislike.
+
+
+## Testing<hr>
 Testing information is found on a separate file [TESTING.md](TESTING.md)
 
 [Back to top](#table-of-contents)
 
-# Deployment<hr>
+## Deployment<hr>
   
 ## How to deploy the application to Heroku:
 
@@ -166,7 +184,7 @@ application' button. Select 'Python' as driver and version 3.6 or later.
 - Click 'Deploy' tab, click 'Enable Automatic Deployment', click 'Deploy Branch'. Heroku now receives the code from Github and starts to
 build the app. When it has finished a message 'Your app was successfully deployed', click 'View' to launch the new app.
 
-### How to run the app locally:
+## How to run the app locally:
 
 For more information on [Cloning a Repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
@@ -193,7 +211,7 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 [Back to top](#table-of-contents)
 
-# Credits<hr>
+## Credits<hr>
 
 ### Content
 

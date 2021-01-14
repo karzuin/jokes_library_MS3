@@ -103,11 +103,11 @@ In mobile phone mode,
 - **Debugged**: Added a check if statement in add_joke view and edit_joke view to ensure user is logged in or they will be redirected 
 to the log in page.
 
-- **Bug**: 
-- **Debugged**: 
+- **Bug**: How to display the logged in username as the author to a joke they just added rather than allowing them to type anything.
+- **Debugged**: Used find_one method in add joke function by defining a variable and used that as a value in the dict.
 
-- **Bug**:
-- **Debugged**: 
+- **Bug**: When a user registered and went to other pages this error appeared: UnboundLocalError: local variable ‘joke’ referenced before assignment and in the terminal HTTP/1.1" 500 error.
+- **Debugged**: Had to assign the joke variable with a value in all the functions that needed it.
 
 - **Bug**: 
 - **Debugged**: 
