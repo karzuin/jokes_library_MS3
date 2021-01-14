@@ -51,19 +51,21 @@ jokes to display on the collections page.
 
 @app.route("/coll_bookmarks/<username>", methods=["GET", "POST"])
 def coll_bookmarks(username):
-    # credit the following code to CI Tutor Johann
-    # gets user and users bookmark list from database
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    users_bookmark = mongo.db.users.find_one(
-            {"username": session["user"]})["users_bookmark"]
-    #  loop through that list to find joke id in the users bookmark key
-    #  and push to bookmark jokes collection.
-    bookmark_jokes = []
-    for bookmark in users_bookmark:
-        joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
-        bookmark_jokes.append(joke)
-    #  The bookmarked jokes are then rendered onto the template
+    if "user" in session:
+        # credit the following code to CI Tutor Johann
+        # gets user and users bookmark list from database
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        users_bookmark = mongo.db.users.find_one(
+                {"username": session["user"]})["users_bookmark"]
+        #  loop through that list to find joke id in the users bookmark key
+        #  and push to bookmark jokes collection.
+        bookmark_jokes = []
+        joke = []
+        for bookmark in users_bookmark:
+            joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
+            bookmark_jokes.append(joke)
+        #  The bookmarked jokes are then rendered onto the template
     return render_template(
         "coll_bookmarks.html", username=username.title(),
         users_bookmark=users_bookmark, bookmark_jokes=bookmark_jokes,
@@ -317,6 +319,7 @@ def family_jokes():
                 {"username": session["user"]})["users_bookmark"]
 
         bookmark_jokes = []
+        joke = []
         for bookmark in users_bookmark:
             joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
             bookmark_jokes.append(joke)
@@ -346,6 +349,7 @@ def food_jokes():
                 {"username": session["user"]})["users_bookmark"]
 
         bookmark_jokes = []
+        joke = []
         for bookmark in users_bookmark:
             joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
             bookmark_jokes.append(joke)
@@ -375,6 +379,7 @@ def insult_jokes():
                 {"username": session["user"]})["users_bookmark"]
 
         bookmark_jokes = []
+        joke = []
         for bookmark in users_bookmark:
             joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
             bookmark_jokes.append(joke)
@@ -404,6 +409,7 @@ def word_jokes():
                 {"username": session["user"]})["users_bookmark"]
 
         bookmark_jokes = []
+        joke = []
         for bookmark in users_bookmark:
             joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
             bookmark_jokes.append(joke)
@@ -433,6 +439,7 @@ def relationship_jokes():
                 {"username": session["user"]})["users_bookmark"]
 
         bookmark_jokes = []
+        joke = []
         for bookmark in users_bookmark:
             joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
             bookmark_jokes.append(joke)
@@ -462,6 +469,7 @@ def yo_jokes():
                 {"username": session["user"]})["users_bookmark"]
 
         bookmark_jokes = []
+        joke = []
         for bookmark in users_bookmark:
             joke = mongo.db.jokes.find_one({'_id': ObjectId(bookmark)})
             bookmark_jokes.append(joke)
