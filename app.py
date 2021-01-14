@@ -28,7 +28,7 @@ also appear on the homepage
 
 
 @app.route("/")
-@app.route("/get_jokes")
+@app.route("/get_jokes", methods=["GET", "POST"])
 def get_jokes():
     jokes = list(mongo.db.jokes.find())
     # credit the following code to CI tutor Tim
@@ -259,12 +259,17 @@ def edit_joke(joke_id):
 
 
 '''
-The delete joke function removes the joke from the database.
+The delete joke function first finds and updates the
+user by removing the matching joke id from the users
+bookmark array. Then removes the joke from the database.
 '''
 
 
 @app.route("/delete_joke/<joke_id>")
 def delete_joke(joke_id):
+    mongo.db.users.find_one_and_update(
+        {"username": session["user"].lower()},
+        {"$pull": {"users_bookmark": ObjectId(joke_id)}})
     mongo.db.jokes.remove({"_id": ObjectId(joke_id)})
     flash("Joke Successfully Deleted")
     return redirect(url_for("get_jokes"))
@@ -287,8 +292,8 @@ def add_bookmark(joke_id):
 
 
 '''
-The remove bookmark finds and updates the user and pulls the matching
-joke id from the users bookmark array.
+The remove bookmark function finds and updates the user by 
+removing the matching joke id from the users bookmark array.
 '''
 
 
