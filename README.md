@@ -13,6 +13,7 @@ Reasons users may be want to use this site:
 - To pass the time. 
 - To laugh out loud, giggle or improve their mood. 
 - Aspiring comedians looking for inspiration.
+- Sharing their own jokes.
 
 ## Table of Contents
 
@@ -94,13 +95,14 @@ in desktop, tablet and phone view.
 - Category management.
 - User and admin interface.
 - When jokes are liked/disliked/bookmarked to stay on the joke rather than reload and go back to the top of page.
+- Newly created jokes to appear on the top of the page.
 
 [Back to top](#table-of-contents)
 
 ## Technologies Used<hr>
 
 - [Gitpod](https://gitpod.io/) IDE (Integrated Development Environment).
-- [GitHub](github.com/) The remote storing of code platform. 
+- [GitHub](github.com/) remote storing of code platform. 
 - [HTML 5](https://en.wikipedia.org/wiki/HTML5) for markup language.
 - [CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) cascading style language.
 - [JQuery](https://code.jquery.com/) javascript library.
@@ -235,14 +237,17 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 #### Image for web browser tab:
 
-- [ICONS8](https://icons8.com/icons/set/lego)
+- Icon of laughing with tears face emoji for the like link [ICONS8](https://icons8.com/icons/set/laughing-emoji)
 
 ### Code
 
 - Most of the code has been modified from the Code Institute tutorials for Data Centric Development Module.
+- For the like/dislike functions from [Stackoverflow](https://stackoverflow.com/questions/23054891/mongodb-pymongo-how-to-increment-multiple-documents)
+- For the add/remove functions modified from [Tim Nelson](https://github.com/TravelTimN/ci-milestone04-dcd/blob/main/app/recipes/routes.py#L585)
 
 # Acknowledgements
 
+This project is dedicated to all the comedians, helping us to not take ourselves too seriously!
 Also thank you to the [Code Institute](https://codeinstitute.net/) slack channel, [CI](https://codeinstitute.net/) tutors, especially 
 [CI Tutor Tim](https://www.linkedin.com/in/travel-tim-nelson/) and [CI Tutor Johann](https://github.com/wondrousWebWorks) and mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/).
 

@@ -49,11 +49,27 @@ Used [PEP8](http://pep8online.com/).
     - The user can see that the layout is very simple, clean and spacious looking.
 
 - As a user, I want to be able to read jokes on the homepage.
-    - The user can scroll down and immediately see the joke cards
+    - The user can scroll down and immediately see the joke cards displayed.
+
 - As a user, I want to be able to access different categories of jokes easily from the homepage.
+    - The user can easily access the different categories available on the right side of the joke cards.
+
 - As a user, I want to be able to search for jokes.
+    - The user can use the searchbox on all pages except the register, login, and submit a joke pages.
+    - The user can use any keywords for jokes eg. fart, coconut, dad etc. and even usernames to find their submitted jokes. 
+    - It's the quickest way to finding what the user wants.
+    - The search result appears on the home page and if no results are found a message appears to let the user know.
+
 - As a user, I want to be able to like and dislike each joke and see the number count.
+    - The user can click on either like or dislike to increase the number count as many times as they want. 
+    It's a small fun interaction for the user.
+
 - As a user, I want to be able to register easily and have that confirmed.
+    - The user can click on the register tab on the fixed navbar wherever they are on the page. 
+    - The register page opens and the form is in the centre of the page where the user is told to type a username between 5 - 15 letters
+    or numbers, any other characters will not be accepted and the user will see the line goes red indicating invalid entry. If the user
+    tries to submit at this point an alert message 'Please match the format requested'. This also applies with the password input field.
+    - When the fields have been inputted correctly the lines go green and home page opens with a message confirming 'Registration Succesful!'
 
 #### Registered Users
 
@@ -109,8 +125,8 @@ to the log in page.
 - **Bug**: When a user registered and went to other pages this error appeared: UnboundLocalError: local variable ‘joke’ referenced before assignment and in the terminal HTTP/1.1" 500 error.
 - **Debugged**: Had to assign the joke variable with a value in all the functions that needed it.
 
-- **Bug**: 
-- **Debugged**: 
+- **Bug**: When the user creates a joke, then bookmarks it and then deletes it, it would leave an empty card panel with the bookmark button on the collections page.
+- **Debugged**: Update the delete function by adding part of the unbookmark function to it. To remove the bookmark and delete the joke.
 
 
 ## Bugs to be fixed<hr>

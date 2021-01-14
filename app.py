@@ -94,6 +94,7 @@ count each click.
 @app.route("/like/<joke_id>", methods=["GET", "POST"])
 def like(joke_id):
     joke = mongo.db.jokes.find_one_and_update(
+        # code credit to line below to stackoverflow, refer to readme file.
         {"_id": ObjectId(joke_id)}, {"$inc": {"like": 1}})
     return redirect(url_for("get_jokes", joke=joke))
 
@@ -107,6 +108,7 @@ count each click.
 @app.route("/dislike/<joke_id>", methods=["GET", "POST"])
 def dislike(joke_id):
     joke = mongo.db.jokes.find_one_and_update(
+        # code credit to line below to stackoverflow, refer to readme file.
         {"_id": ObjectId(joke_id)}, {"$inc": {"dislike": 1}})
     return redirect(url_for("get_jokes", joke=joke))
 
@@ -286,13 +288,14 @@ has bookmarked.
 def add_bookmark(joke_id):
     mongo.db.users.find_one_and_update(
         {"username": session["user"].lower()},
+        # code credit for line below to Tim Nelson, refer to readme.
         {"$push": {"users_bookmark": ObjectId(joke_id)}})
     flash("Bookmark is Saved!")
     return redirect(url_for("get_jokes"))
 
 
 '''
-The remove bookmark function finds and updates the user by 
+The remove bookmark function finds and updates the user by
 removing the matching joke id from the users bookmark array.
 '''
 
@@ -301,6 +304,7 @@ removing the matching joke id from the users bookmark array.
 def remove_bookmark(joke_id):
     mongo.db.users.find_one_and_update(
         {"username": session["user"].lower()},
+        # code credit for line below to Tim Nelson, refer to readme
         {"$pull": {"users_bookmark": ObjectId(joke_id)}})
     flash("Bookmark is Removed!")
     return redirect(url_for("get_jokes"))
