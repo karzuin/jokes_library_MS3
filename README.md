@@ -72,7 +72,7 @@ in desktop, tablet and phone view.
 [Back to top](#table-of-contents)
 
 ### Features<hr>
-## Accessible to all users
+### Accessible to all users
 
 - The homepage consists of the main heading, navbar with links to the homepage, register page and log in page.
 - There is a welcome message where you can click to get more information on how to use the website.
@@ -81,7 +81,7 @@ in desktop, tablet and phone view.
 - On the left of the joke bank are the jokes in their categories, so the user may want to read particular type of jokes.
 - In the footer are social links that open up to their respective social media homepages.
 
-## Accessible to registered users
+### Accessible to registered users
 
 - Once logged in, the user is directed to the homepage with a welcome message. 
 - The jokes now show options of bookmarking them. 
@@ -90,7 +90,7 @@ in desktop, tablet and phone view.
 - Once jokes are submitted the option to edit or delete them will appear on the joke card.
 - They can still like and dislike jokes on any of the joke pages.
 
-## Features Left to Implement
+### Features Left to Implement
 
 - Pagination.
 - Limiting search results displayed on each page.
@@ -148,7 +148,7 @@ Testing information is found on a separate file [TESTING.md](TESTING.md)
 
 ### Deployment<hr>
   
-## How to deploy the application to Heroku:
+### How to deploy the application to Heroku:
 
 - First I created some files that Heroku needs to run the app with. The first file tells Heroku which applications and dependencies are required
 to run the app.
@@ -192,7 +192,7 @@ application' button. Select 'Python' as driver and version 3.6 or later.
 - Click 'Deploy' tab, click 'Enable Automatic Deployment', click 'Deploy Branch'. Heroku now receives the code from Github and starts to
 build the app. When it has finished a message 'Your app was successfully deployed', click 'View' to launch the new app.
 
-## How to run the app locally:
+### How to run the app locally:
 
 For more information on [Cloning a Repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
@@ -221,7 +221,7 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 ### Credits<hr>
 
-## Content
+### Content
 
 #### Text for welcome message:
 
@@ -231,7 +231,7 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 - [Laugh Factory](http://www.laughfactory.com/)
 
-## Media
+### Media
 
 #### Images for base.html:
 
@@ -245,13 +245,13 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 - Icon of laughing with tears face emoji for the like link [ICONS8](https://icons8.com/icons/set/laughing-emoji)
 
-## Code
+### Code
 
 - Most of the code has been modified from the Code Institute tutorials for Data Centric Development Module.
 - For the like/dislike functions from [Stackoverflow](https://stackoverflow.com/questions/23054891/mongodb-pymongo-how-to-increment-multiple-documents)
 - For the add/remove functions modified from [Tim Nelson](https://github.com/TravelTimN/ci-milestone04-dcd/blob/main/app/recipes/routes.py#L585)
 
-# Acknowledgements
+### Acknowledgements
 
 This project is dedicated to all the comedians, helping us to not take ourselves too seriously!
 Also thank you to the [Code Institute](https://codeinstitute.net/) slack channel, [CI](https://codeinstitute.net/) tutors, especially 
