@@ -27,9 +27,9 @@ Reasons users may be want to use this site:
 * [Deployment](#deployment)
 * [Credits](#credits)
 
-## UX<hr>
+### UX<hr>
 
-## User stories<hr>
+### User stories<hr>
 
 #### All Users
 
@@ -50,7 +50,7 @@ Reasons users may be want to use this site:
 - As a user, I want to be able to un-bookmark jokes on the collections page, home page and category page and have that confirmed.
 - As a user, I want to be able to see the bookmarked jokes in my collections.
 
-## Design<hr>
+### Design<hr>
 
 Inspired by the [Laugh Factory](http://www.laughfactory.com/) website, I wanted to create something similar but a simpler, cleaner 
 version, so it would be an easier website to navigate and less overwhelming and more easier to look at and interact with.
@@ -65,13 +65,13 @@ I used face emoji icons from ICONS8 as they were colourful for the like and disl
 
 Mali font family was used throughout the website as it gives a playful, humorous, light looking feel.
 
-## Wireframes<hr>
+### Wireframes<hr>
 I used [Pencil](https://pencil.evolus.vn/) to create [wireframes](https://github.com/karzuin/jokes_library_MS3/tree/master/wireframes) 
 in desktop, tablet and phone view.
 
 [Back to top](#table-of-contents)
 
-## Features<hr>
+### Features<hr>
 ## Accessible to all users
 
 - The homepage consists of the main heading, navbar with links to the homepage, register page and log in page.
@@ -105,7 +105,7 @@ in desktop, tablet and phone view.
 
 [Back to top](#table-of-contents)
 
-## Technologies Used<hr>
+### Technologies Used<hr>
 
 - [Gitpod](https://gitpod.io/) IDE (Integrated Development Environment).
 - [GitHub](github.com/) remote storing of code platform. 
@@ -130,7 +130,7 @@ in desktop, tablet and phone view.
 - [Favicon](https://favicon.io) To include a laughing face icon on the web browser tab.
 - [Resizeimage](https://resizeimage.net/) To crop hero image.
 
-## Data structure<hr>
+### Data structure<hr>
 
 MongoDB Atlas was used to store the data for this project. It consists of 3 collections:
 1. Categories: 
@@ -141,12 +141,12 @@ MongoDB Atlas was used to store the data for this project. It consists of 3 coll
     - Six keys: Primary ObjectId, category name, joke description, created by, like and dislike.
 
 
-## Testing<hr>
+### Testing<hr>
 Testing information is found on a separate file [TESTING.md](TESTING.md)
 
 [Back to top](#table-of-contents)
 
-## Deployment<hr>
+### Deployment<hr>
   
 ## How to deploy the application to Heroku:
 
@@ -219,9 +219,9 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 [Back to top](#table-of-contents)
 
-## Credits<hr>
+### Credits<hr>
 
-### Content
+## Content
 
 #### Text for welcome message:
 
@@ -231,7 +231,7 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 - [Laugh Factory](http://www.laughfactory.com/)
 
-### Media
+## Media
 
 #### Images for base.html:
 
@@ -245,7 +245,7 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 - Icon of laughing with tears face emoji for the like link [ICONS8](https://icons8.com/icons/set/laughing-emoji)
 
-### Code
+## Code
 
 - Most of the code has been modified from the Code Institute tutorials for Data Centric Development Module.
 - For the like/dislike functions from [Stackoverflow](https://stackoverflow.com/questions/23054891/mongodb-pymongo-how-to-increment-multiple-documents)

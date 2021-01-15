@@ -2,7 +2,7 @@
 
 ### [Back to repository](https://github.com/karzuin/jokes_library_MS3)
 
-## Table of Contents<hr>
+### Table of Contents<hr>
 
 * [Validators](#validators)
 * [Testing User Stories](#testing-user-stories)
@@ -11,7 +11,7 @@
 * [Bugs During Testing](#bugs-during-testing)
 * [Bugs To Be Fixed](#bugs-to-be-fixed)
 
-## Validators<hr>
+### Validators<hr>
 
 Used [W3C HTML validator](https://validator.w3.org/#validate_by_input) website via the direct input path. 
 
@@ -37,9 +37,9 @@ Used [PEP8](http://pep8online.com/).
 
 [Back to top](#table-of-contents)
 
-## Testing User Stories<hr>
+### Testing User Stories<hr>
 
-#### All Users
+### All Users
 
 - As a user, I want the website to be easy to understand and navigate.
     - As the user can see from the homepage everything is clearly described and labelled. 
@@ -80,7 +80,7 @@ Used [PEP8](http://pep8online.com/).
 
 [Back to top](#table-of-contents)
 
-#### Registered Users
+### Registered Users
 
 - As a user, I want to be able to log in easily and have that confirmed.
     - The user clicks on the Log In tab on the fixed navbar and the Log In page opens and the form is in the center of the page where the 
@@ -134,7 +134,7 @@ Used [PEP8](http://pep8online.com/).
 
 [Back to top](#table-of-contents)
 
-## Responsiveness On Different Screen Sizes<hr>
+### Responsiveness On Different Screen Sizes<hr>
 
 ### [Laugh Out Loud!](https://jokes-library.herokuapp.com/)
 
@@ -144,7 +144,7 @@ No errors or problems occured with the function of the app.
 
 [Back to top](#table-of-contents)
 
-## Browser Compatibility<hr>
+### Browser Compatibility<hr>
 
 The website was manually tested on the following browsers and do not occur any errors or problems.
 
@@ -157,7 +157,7 @@ The website was manually tested on the following browsers and do not occur any e
 
 [Back to top](#table-of-contents)
 
-## Bugs During Testing<hr>
+### Bugs During Testing<hr>
 
 - **Bug**: User can save link to submit a joke and log out and then paste the submit a joke link and add a joke.
 - **Debugged**: Added a check if statement in add_joke view and edit_joke view to ensure user is logged in or they will be redirected 
@@ -173,7 +173,7 @@ to the log in page.
 - **Debugged**: Update the delete function by adding part of the unbookmark function to it. To remove the bookmark and delete the joke.
 
 
-## Bugs to be fixed<hr>
+### Bugs to be fixed<hr>
 
 - Currently none but many features to be added to make the user experience better are listed in Features Left to Implement in the 
 [README](https://github.com/karzuin/jokes_library_MS3/blob/master/README.md)
