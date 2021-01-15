@@ -2,9 +2,11 @@
 
 ![](readme-images/allresponsive.png)
 
-A website that has a collection of jokes to make people laugh and lighten their mood in these challenging times! 
+A website that is inspired by the 'Laugh Factory' website. This app has a collection of jokes to make people laugh and lighten 
+their mood in these challenging times! 
 The web pages are easy to navigate with a simple layout and light, fresh colours. 
-Jokes are all displayed on the homepage but are also categorised for easy access. All users can read and vote to like or dislike jokes.
+Jokes are all displayed on the homepage but are also categorised for easy access. All users can read and vote to like or dislike jokes
+as many times as they like, for a simple fun user interaction.
 Users can also register to gain access to options of submitting, editing and deleting their jokes, bookmarking and collecting jokes of 
 other users.
 
@@ -18,9 +20,6 @@ Reasons users may be want to use this site:
 ## Table of Contents
 
 * [UX](#ux)
-  * [User Stories](#user-stories)
-  * [Design](#design)
-  * [Wireframes](#wireframes)
 * [Features](#features)
 * [Technologies Used](#technologies-used)
 * [Data Structure](#data-structure)
@@ -53,6 +52,9 @@ Reasons users may be want to use this site:
 
 ## Design<hr>
 
+Inspired by the [Laugh Factory](http://www.laughfactory.com/) website, I wanted to create something similar but a simpler, cleaner 
+version, so it would be an easier website to navigate and less overwhelming and more easier to look at and interact with.
+
 I wanted a simple layout, easy to intuitively navigate, and light, fresh colours of white, yellow and teal to positively influence the 
 mood of the user. The buttons were bold colours of green, red, yellow and a muted grey colour for the cancel button.
 
@@ -74,7 +76,7 @@ in desktop, tablet and phone view.
 - The search box allows the user to quickly search for jokes, usernames and categories with keywords, they also have the option to reset the input field or search.
 - The Joke Bank displays all the jokes in the database with the option to like or dislike them. 
 - On the left of the joke bank are the jokes in their categories, so the user may want to read particular type of jokes.
-- In the footer are social links that open up to their respective homepages.
+- In the footer are social links that open up to their respective social media homepages.
 
 ## Accessible to registered users
 
@@ -92,10 +94,11 @@ in desktop, tablet and phone view.
 - Sorting and ordering search results.
 - Where users can communicate with each other, share jokes and comment.
 - Admin user and management control.
+- Joke approval process.
 - Category management.
 - User and admin interface.
-- When jokes are liked/disliked/bookmarked to stay on the joke rather than reload and go back to the top of page.
-- Newly created jokes to appear on the top of the page.
+- When jokes are liked/disliked/bookmarked to stay on the joke rather than reload and go back to the top of the homepage.
+- Newly created jokes to appear on the top of the homepage.
 
 [Back to top](#table-of-contents)
 
@@ -223,7 +226,7 @@ os.environ["MONGO_URI"] = "mongodb+srv://<username>:<password>@<cluster_name>-oc
 
 #### Jokes in the library:
 
-- [Laughing Factory](http://www.laughfactory.com/)
+- [Laugh Factory](http://www.laughfactory.com/)
 
 ### Media
 
