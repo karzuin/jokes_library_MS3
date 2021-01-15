@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align grey-text">Log In</h3>
+    <h3 class="center-align yellow-text text-darken-2">Log In</h3>
 
     <div class="row">
         <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('login') }}">
@@ -10,7 +10,7 @@
                 <div class="row">
 					<div class="input-field col s12">
 						<input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-						<label for="username">Username</label>
+						<label for="username" >Username</label>
 					</div>
                 </div>
                 <!-- password -->
