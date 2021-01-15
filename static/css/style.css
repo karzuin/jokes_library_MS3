@@ -191,7 +191,7 @@ nav ul a{
 @media only screen and (min-width: 760px) {
 
     #hero-text {
-        font-size: 40px;
+        font-size: 30px;
     }
     
     #searchbox {
@@ -230,8 +230,12 @@ nav ul a{
 
 /* MEDIA QUERIES for Laptops */
 
-@media only screen and (min-width: 1020px) {
+@media only screen and (min-width: 1024px) {
 
+    #hero-text {
+        font-size: 35px;
+    }
+    
     .btn-small {
         width: auto;
     }
@@ -259,6 +263,10 @@ nav ul a{
 }
 
 @media only screen and (min-width: 1435px) {
+
+    #hero-text {
+        font-size: 40px;
+    }
 
     #edit-delete {
         margin-left: -30px;
