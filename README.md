@@ -55,6 +55,9 @@ Reasons users may be want to use this site:
 Inspired by the [Laugh Factory](http://www.laughfactory.com/) website, I wanted to create something similar but a simpler, cleaner 
 version, so it would be an easier website to navigate and less overwhelming and more easier to look at and interact with.
 
+I wanted the hero image to make users smile when they saw it, and found a photo of people of different backgrounds sincerely
+laughing.
+
 I wanted a simple layout, easy to intuitively navigate, and light, fresh colours of white, yellow and teal to positively influence the 
 mood of the user. The buttons were bold colours of green, red, yellow and a muted grey colour for the cancel button.
 
